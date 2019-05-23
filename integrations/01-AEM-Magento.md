@@ -27,6 +27,3 @@ The overall architecture is as follows:
 * Remote product data and catalog
 
 * Workflow (e.g. if data changes- cache invalidation, etc.)
-
-## Performance (Caching, etc.)
-
