@@ -1,5 +1,8 @@
-# Getting Started with Adobe Commerce Cloud
+# Getting Started
 
+## AEM - Magento Integration using the Commerce Integration Framework
+
+This videos shows you the first steps.
 
 <figure class="video_container">
   <iframe title="Adobe Video Publishing Cloud Player" width="640" height="360" src="https://video.tv.adobe.com/v/27399/?quality=12" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen scrolling="no"></iframe>
