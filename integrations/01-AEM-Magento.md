@@ -1,12 +1,14 @@
 # AEM and Magento
 
-The Commerce Integration Framework is currently in closed beta. If you would like to learn more about the beta program, please contact your account representative.
- 
-The integration will be available with the following connectors:
-* Commerce: Magento, Commercetools, hybris, Elastic Path and Skava
-* PIM: Agility Multichannel (Magnitude)
+
 
 # High-level Architecture
+
+## Architecture
+
+The overall architecture is as follows:
+
+![Architecture Overview](images/architecture-overview.jpg)
 
 ## AEM Venia Reference Store-front
 
