@@ -1,5 +1,7 @@
 # AEM - Magento Integration using Commerce Integration Framework FAQ
 
+This document answers to 19 question about the Magento integration with AEM.
+
 ### 1. Is GraphQL only used for Magento or will this be available for querying content authored on AEMs JCR?
 
 Adobe has adopted Magento’s GraphQL APIs as its official commerce API for all commerce related data. Hence, AEM uses GraphQL to exchange commerce data with Magento and later this year with any commerce engine via I/O Runtime. However, AEM intends to use GraphQL for querying in the future.
@@ -17,13 +19,13 @@ There isn't currently an AEM Assets – Magento integration. As a workaround, yo
 
 It does not matter where Magento is deployed. The integration and the new AEM Venia store front will work regardless of the deployment model. However, if it is deployed based on the approved E2E reference architecture, E2E tests will be run against performance KPIs that were gathered that represent an enterprise customer’s profile. So, this will provide you with additional information that you can use as a benchmark.
 
-### 5. How are catalog pages / product pages created in AEM? How do they persist in AEM?
+### 5. How are catalog pages or product pages created in AEM? How do they persist in AEM?
 
-This new integration does not need the classic CIF on-prem workflow to import product and create product pages in AEM. Catalog pages and product pages are created and cached dynamically in AEM based on generic catalog and product page templates. No Product / Catalog data is imported and stored in AEM.
+This new integration does not need the classic CIF on-prem workflow to import product and create product pages in AEM. Catalog pages and product pages are created and cached dynamically in AEM based on generic catalog and product page templates. No Product or Catalog data is imported and stored in AEM.
 
 ### 6. Do you also cache pricing and other data via Dispatcher. Does that raise a frequent cache invalidation challenge?
 
-Dynamic data such as price or inventory is not cached on the Dispatcher. Dynamic data is fetched client-side with web components directly via GraphQL APIs. Only static data (such as product/category data) is cached on the Dispatcher. If product data changes, there will be need for cache invalidation.
+Dynamic data such as price or inventory is not cached on the Dispatcher. Dynamic data is fetched client-side with web components directly via GraphQL APIs. Only static data (such as product or category data) is cached on the Dispatcher. If product data changes, there will be a need for cache invalidation.
 
 ### 7. Why are you not using We.Retail?
 
@@ -31,17 +33,15 @@ The Venia theme (developed by Magento) is used which is mobile first and aligned
 
 ### 8. When you update product data in Magento, is that a real-time push to AEM? Or is it a batch process?
 
-
 A connector (AEM-CIF connector) was developed which enables data to flow from Magento to AEM on-demand. Hence, this is not a real-time push or a batch process when there is an update in Magento.
 
-### 9. Is there any recommendation on unified search across AEM content + Commerce?
+### 9. Is there any recommendation on unified search across AEM content with Commerce?
 
 A product search reference implementation is provided but no unified search with content. This feature is usually very customer specific and better solved on a project-specific level.
 
 ### 10. How can product data be used in MSM or translations?
 
 Product data is usually already translated in PIM or in Magento. The AEM – Magento Integration supports the connection to multiple Magento stores & store views. In an MSM setup typically one AEM site is linked to one Magento store view.
-
 
 
 ### 11. How does CIF work with other commerce platforms?
@@ -58,7 +58,7 @@ GraphQL on I/O Runtime will be enabled later in 2019.
 
 ### 14. Who should we contact if we face issues while setting up the connector?
 
-You can submit issues/create tickets on [GitHub](https://github.com/adobe/commerce-cif-connector/issues).
+You can submit issues or create tickets on [GitHub](https://github.com/adobe/commerce-cif-connector/issues).
 
 ### 15. Does the integration between AEM-Magento change when Adobe I/O Runtime platform is used?
 
