@@ -1,9 +1,5 @@
 # AEM and Magento
 
-
-
-# High-level Architecture
-
 ## Architecture
 
 The overall architecture is as follows:
@@ -33,16 +29,4 @@ The overall architecture is as follows:
 * Workflow (e.g. if data changes- cache invalidation, etc.)
 
 ## Performance (Caching, etc.)
-
-# CIF
-
-## Elements
-
-* Connector, AEM components, Web components, etc.
-
-## Benefits
-
-* Extensibility and Integration with 3rd party solutions
-
-## Adobe I/O Runtime
 
