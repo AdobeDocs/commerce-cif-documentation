@@ -1,0 +1,26 @@
+{
+"name": "Commerce Integration Framework",
+"version": "1.0.0",
+"description": "Commerce Integration Framework Documentation",
+"author": "Michal Wielinski",
+"view_type": "mdbook",
+"meta_keywords": "adobe i/o, adobe commerce integration framework, adobe commerce, adobe cif",
+"meta_description": "Adobe Commerce Integration Framework Documentation",
+"publish_date": "17/01/2019",
+"show_edit_github_banner": false,
+"base_path": "https://raw.githubusercontent.com",
+"pages":  [
+    {
+        "importedFileName": "FAQ",
+        "pages": [],
+        "path": "AdobeDocs/commerce-cif-documentation/master/integrations/01-CIF.md.md",
+        "title": "FAQ"
+    },
+    {
+        "importedFileName": "FAQ",
+        "pages": [],
+        "path": "AdobeDocs/commerce-cif-documentation/master/integrations/02-AEM-Magento.md",
+        "title": "FAQ"
+    }
+   ]
+}
