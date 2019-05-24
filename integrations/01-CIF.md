@@ -1,9 +1,10 @@
 # Commerce Integration Framework Introduction
 
+Adobe’s Commerce Integration Framework (CIF) vision is to enable Adobe customers to build and deliver extraordinary and personalized omnichannel shopping experience based on state-of-the-art technology.
 
 ## Principles
 
-The Commerce Integration Framework (CIF) provides our customers with adaptable Commerce business processes that are exposed as microservices:
+The CIF provides our customers with adaptable Commerce business processes that are exposed as microservices:
 
 *  Microservices are small, modular services that provide a specific business function.  
 
