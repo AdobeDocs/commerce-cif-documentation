@@ -12,22 +12,9 @@
 "pages":
   [
     {
-        "importedFileName": "01-Introduction",
+        "importedFileName": "01-getting-started.md",
         "pages": [],
-        "path": "adobe/commerce-cif-documentation/master/docs/01-Introduction.md",
-        "title": "Introduction"
+        "path": "01-getting-started.md",
+        "title": "Getting Started"
     },
-    {
-        "importedFileName": "02-Concepts",
-        "pages": [],
-        "path": "adobe/commerce-cif-documentation/master/docs/02-Concepts.md",
-        "title": "Concepts"
-    },
-    {
-        "importedFileName": "Customization Patterns",
-        "pages": [],
-        "path": "adobe/commerce-cif-documentation/master/docs/03-Customization%20Patterns.md",
-        "title": "Customization Patterns"
-    }
-  ]
-}
+   
