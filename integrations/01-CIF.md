@@ -15,15 +15,15 @@ The CIF provides you with adaptable Commerce business processes that are exposed
 *  Supports entire marketing cloud.
 
 
+
 ## Adobe I/O Runtime
 
 The CIF on Cloud services architecture is based on [OpenWhisk](https://openwhisk.apache.org) & [Adobe I/O Runtime](https://www.adobe.io/apis/cloudplatform/runtime.html). The main building blocks of the commerce services are serverless functions (OpenWhisk actions). These actions run on Adobe I/O Runtime inside an isolated container, stateless and serverless interacting with the commerce backend system or other endpoints via their APIs. 
 
+This will be available later.
 
 
-## Architecture
 
-The overall architecture is as follows:
+## CIF Elements
 
-![Architecture Overview](images/cif-architecture.jpg)
-
+## CIF Benefits
