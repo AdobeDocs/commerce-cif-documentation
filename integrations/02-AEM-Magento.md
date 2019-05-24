@@ -16,6 +16,9 @@ It demonstrates the best practices for integrating AEM and Magento and shows how
 
 The project is open source and available on[GitHub](https://github.com/adobe/aem-core-cif-components).
 
+Both server side and client side.
+### Integration patterns
+
 ## AEM Commerce connector for Magento and GraphQL
 
 This connector provides some integration of Magento products and categories in the AEM Commerce console as well as some authoring features like product and category pickers.  It also provides authoring features to display product and category information of data stored in Magento from within AEM by using Magento's GraphQL APIs.
