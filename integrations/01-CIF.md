@@ -23,7 +23,17 @@ The CIF on Cloud services architecture is based on [OpenWhisk](https://openwhisk
 This will be available later.
 
 
+## CIF Benefits
 
 ## CIF Elements
 
-## CIF Benefits
+This list presents the main CIF elements:
+
+#### AEM CIF Cloud connector
+The connector connects AEM with CIF Cloud GraphQL endpoint. It allows AEM to access and exchange commerce data via GraphQL.
+
+#### AEM Venia Storefront
+This is the storefront accelerator for AEM (Author, Preview, Deploy). It supports Adobe Commerce GraphQL endpoints and works with AEM core components and client-side commerce components.
+It is a reference store-front and allows you to kickstart projects to quickly build a standard storefront based on AEM technologies.
+
+
