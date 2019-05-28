@@ -14,13 +14,13 @@
         "importedFileName": "CIF",
         "pages": [],
         "path": "AdobeDocs/commerce-cif-documentation/master/integrations/01-CIF.md",
-        "title": "FAQ"
+        "title": "Commerce Integration Framework"
     },
     {
         "importedFileName": "AEM and Magento",
         "pages": [],
         "path": "AdobeDocs/commerce-cif-documentation/master/integrations/02-AEM-Magento.md",
-        "title": "FAQ"
+        "title": "AEM and Magento"
     }
    ]
 }
