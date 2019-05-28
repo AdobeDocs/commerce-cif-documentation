@@ -32,9 +32,11 @@ Even if you have very specific use-cases, the connector can be used a reference 
 
 ## Integration patterns
 
-How 
-server side stuff
-mix appplication
+The integration is a mix appplication. Both server-side rendering and client-side rendering are used in the store front. Anything that is more static is delivered server-side and anything that is more dynamic is delivered client-side.
+For example, Product and Catalog are dynamic and are rendered server-side. AEM Components such as Product Detail and List are 
+used and these components are then cached on the AEM dispatcher and are delivered to the browser.
+
+For more dynamic attributes such as Inventory or Price on the other hand, client-side components are used. They are 
 
 AEM components server side
 
@@ -42,7 +44,7 @@ Web component client side
 
 Catalog Managements
 
-Hybrid checkout
+The checkout flows are very complex and 
 
 ## AEM Authoring
 
