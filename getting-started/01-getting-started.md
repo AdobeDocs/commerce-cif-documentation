@@ -11,5 +11,5 @@ This videos shows you the first steps.
 
 You can find more information on these GitHub repositories:
 
-* https://github.com/adobe/commerce-cif-connector (AEM- CIF connector and authoring tools)
-* https://github.com/adobe/aem-core-cif-components (AEM Venia reference store and AEM components)
+* [AEM- CIF connector and authoring tools](https://github.com/adobe/commerce-cif-connector)
+* [AEM Venia reference store and AEM components](https://github.com/adobe/aem-core-cif-components)
