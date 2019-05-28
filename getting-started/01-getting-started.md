@@ -2,7 +2,7 @@
 
 ## AEM - Magento Integration using the Commerce Integration Framework
 
-This videos shows you the first steps.
+This video walks you through the setup of the integration between AEM and Magento:
 
 <figure class="video_container">
   <iframe title="Adobe Video Publishing Cloud Player" width="640" height="360" src="https://video.tv.adobe.com/v/27399/?quality=12" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen scrolling="no"></iframe>
