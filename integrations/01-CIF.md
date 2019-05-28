@@ -38,29 +38,29 @@ The main benefits are:
 
 This list presents the main CIF elements:
 
-##### AEM CIF Cloud Connector
+#### AEM CIF Cloud Connector
 The connector connects AEM with CIF Cloud GraphQL endpoint. It allows AEM to access and exchange commerce data via GraphQL.
 
-##### AEM Venia Storefront
+#### AEM Venia Storefront
 This is the storefront accelerator for AEM (Author, Preview, Deploy). It supports Adobe Commerce GraphQL endpoints and works with AEM core components and client-side commerce components.
 It is a reference store-front and allows you to kickstart projects to quickly build a standard storefront based on AEM technologies.
 
-##### AEM Components
+#### AEM Components
 
 The AEM components are server-side rendered components with Magento GraphQL support. They're used to create static, cacheable and SEO-friendly content based on AEM technologies.
 
-##### Web Components
+#### Web Components
 
 The Web Components are ReactJS components rendered client-side with Adobe Commerce GraphQL support. There is an AEM wrapper to enable component authoring and configuration. They allow you to create dynamic components, such as shopping cart and search.
 
-##### CIF Extension Layer
+#### CIF Extension Layer
 
 The CIF extension layer runs on a serverless I/O Runtime architecture. It allows you to extend end-to-end service calls by injecting business and process logic on a microservice level. Business logic would be for example to use location and channel to determine an inventory strategy. Process logic would be for example to retrieve personalized information.
 
-##### CIF Integration Layer
+#### CIF Integration Layer
 
 The CIF integration layer runs on a serverless I/O Runtime architecture. It standardizes third party solution integrations on a microservice level to encapsulate third party commerce solutions by mapping third party APIs against the Adobe Commerce APIs. This allows you to use AEM tools, multiple page authoring and components out-of-the-box.
 
-##### Campaign Integration
+#### Campaign Integration
 
 The Campaign integration provided extensible microservices on I/O Runtime that enriches *cart abandonment* events with live data before calling Campaign. It calls Magento to get cart details and calls Campaign's APIs to provide data.
