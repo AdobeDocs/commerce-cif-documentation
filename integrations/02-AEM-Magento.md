@@ -33,18 +33,13 @@ Even if you have very specific use-cases, the connector can be used a reference 
 ## Integration patterns
 
 The integration is a mix appplication. Both server-side rendering and client-side rendering are used in the store front. Anything that is more static is delivered server-side and anything that is more dynamic is delivered client-side.
-For example, Product and Catalog are static and are rendered server-side. AEM Components such as Product Detail and Product List. They arer used on dynamic templates. They get data from Magento via GraphQL apis.
+For example, Products and Catalogs are static and are rendered server-side. AEM Components such as Product Detail and Product List are used on dynamic templates created on AEM. They get data from Magento via GraphQL apis.
 These pages are created and cached on the AEM dispatcher and are delivered to the browser.
+For more dynamic attributes such as Inventory or Price on the other hand, client-side components are used. They fetch data from Magento and are rendered on the browser. 
 
-For more dynamic attributes such as Inventory or Price on the other hand, client-side components are used. They are 
+Catalog Management
 
-AEM components server side
 
-Web component client side
-
-Catalog Managements
-
-The checkout flows are very complex and 
 
 ## AEM Authoring
 
