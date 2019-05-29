@@ -50,7 +50,7 @@ This integration uses a hybrid delivery model for checkout. The checkout page is
 
 The AEM-Magento reference architecture is as follows:
 
-
+![Reference Architecture](images/Reference Architecture.jpg)
 
 ## AEM CIF Components and AEM Authoring
 
