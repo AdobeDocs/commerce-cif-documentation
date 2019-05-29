@@ -48,17 +48,22 @@ From a catalog management point of view, Magento is responsible for all commerce
 
 This integration uses a hybrid delivery model for checkout. The checkout page is not created or delivered by AEM but is delivered as an HTML page by Magento. Hence, in this approach no credit card information or Sensitive Personal Data is stored or transmitted through AEM. The same approach can also be used for MyAccount pages or any other page that does not contain marketing content.
 
+The AEM-Magento reference architecture is as follows:
 
-## AEM Authoring
 
-Basic components are provided, common across commerce implementations such as product, product List, navigation... They can be used as-is or be extended.
 
-The CIF Core Components work like the [AEM Sites Core Components](https://github.com/adobe/aem-core-wcm-components) but are dedicated for the Commerce specific use-cases.
+## AEM CIF Components and AEM Authoring
+
+Basic components are provided, common across commerce implementations such as Product Detail, Product List, Navigation, Search, etc. They can be used as-is or be extended.
+
+The AEM CIF Components work like the [AEM Sites Core Components](https://github.com/adobe/aem-core-wcm-components) but are dedicated for the Commerce specific use-cases.
 
 These components key benefits are:
 * They are easy to use in your projects.
 * They can be used as-is or with very minimal modifications.
-* They provide best practices for connecting with Magento via GraphQL APIs and/or via Adobe I/O.
+* They provide best practices for connecting with Magento via GraphQL APIs or REST APIs
 
-They are open-sourced on [GitHub](https://github.com/adobe/aem-core-cif-components).
+Components such as Product Teaser and Product Carousel are provided to enable AEM Authors to create Experience pages in AEM, combining marketing and commerce content. These components can be easily dragged and dropped on to a content page created in AEM and linked to specific products or categories using the Product or Category Picker in AEM. 
+
+All the components are open-sourced on [GitHub](https://github.com/adobe/aem-core-cif-components).
 This shows full transparency on changes made going forward and allows you to get the latest version very easily. You can also provide pull requests for improvements and bug fixes that can be incorporated.
