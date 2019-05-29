@@ -12,27 +12,27 @@ The CIF provides you with adaptable Commerce business processes that are exposed
 
 *  Reduces the time, cost, and complexity of supporting complex omnichannel commerce scenarios.
 
-*  Supports entire marketing cloud.
-
-
-
-## Adobe I/O Runtime
-
-The CIF on Cloud services architecture is based on [OpenWhisk](https://openwhisk.apache.org) & [Adobe I/O Runtime](https://www.adobe.io/apis/cloudplatform/runtime.html). The main building blocks of the commerce services are serverless functions (OpenWhisk actions). These actions run on Adobe I/O Runtime inside an isolated container, stateless and serverless interacting with the commerce backend system or other endpoints via their APIs. 
-
-This will be available later.
-
 
 ## CIF Benefits
 
 The main benefits are: 
 
 1. The integration is an abstraction layer to standardize and encapsulate integrations with multiple systems. It provides a flexible and re-usable customization for every service.
+
 2. The extension is a serverless, microservice-based process and business logic layer that allows you to customize and extend commerce services.
+
 3. CIF supports headless/omnichannel experiences:
     * Single Page applications and Multipe Pages Applications
     * GraphQL endpoints
-4. CIF provides bi-directional integrations with the Experience Cloud. That means integrated SDKs to leverage the power of Adobe's services and solutions, as well as out-of-the-box integrations with Adobe solutions such as Campaign, Target and AEM.
+    
+4. CIF provides bi-directional integrations with the Experience Cloud. That means integrated SDKs to leverage the power of Adobe's services and solutions, as well as out-of-the-box integrations with Adobe solutions such as Campaign, and AEM.
+
+
+## CIF on Adobe I/O Runtime
+
+The CIF on Adobe I/O Runtime enables two use-cases: 1. 3rd party integrations via microservice layer and 2. Extensibility of microservices. This architecture is based on [OpenWhisk](https://openwhisk.apache.org) & [Adobe I/O Runtime](https://www.adobe.io/apis/cloudplatform/runtime.html). The main building blocks of the commerce services are serverless functions (OpenWhisk actions). These actions run on Adobe I/O Runtime inside an isolated container, stateless and serverless interacting with the commerce backend system or other endpoints via their APIs. 
+
+This will be available later in 2019.
 
 ## CIF Elements
 
