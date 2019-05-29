@@ -43,7 +43,6 @@ A product search reference implementation is provided but no unified search with
 
 Product data is usually already translated in PIM or in Magento. The AEM – Magento Integration supports the connection to multiple Magento stores & store views. In an MSM setup typically one AEM site is linked to one Magento store view.
 
-
 ### 11. How does CIF work with other commerce platforms?
 
 Integration with third party solutions such as other commerce solutions will be enabled later this year via the I/O Runtime platform. GraphQL support will be enabled on the I/O Runtime platform so that you can build a mapping layer (hosted on I/O Runtime) to map the GraphQL APIs to the third party solution’s APIs to build the integration.
@@ -52,31 +51,23 @@ Integration with third party solutions such as other commerce solutions will be 
 
 This functionality is planned in early 2020 but can be developed on a project-level. There are multiple ways to achieve this and it will depend on the use case. One way would be to work with custom attributes. Allow AEM authors to mutate these fields in AEM’s product editor and synchronize the data back to the PIM. Another option would be leveraging AEM Experience Fragments which gets injected into the product pages.
 
-### 13. When will GraphQL on Adobe I/O be released?
-
-GraphQL on I/O Runtime will be enabled later in 2019.
-
-### 14. Who should we contact if we face issues while setting up the connector?
-
-You can submit issues or create tickets on [GitHub](https://github.com/adobe/commerce-cif-connector/issues).
-
-### 15. Does the integration between AEM-Magento change when Adobe I/O Runtime platform is used?
+### 13. Does the integration between AEM-Magento change when Adobe I/O Runtime platform is used?
 
 Customers will not need to re-do the integration once GraphQL on I/O Runtime is available.
 Customers who want to extend commerce services can use the same integration and write action sequences hosted on the I/O Runtime platform to inject business logic and enrich the commerce services.
 
-### 16. With no products stored in AEM, how do you envision authors mapping images to a specific product?
+### 14. With no products stored in AEM, how do you envision authors mapping images to a specific product?
 
 You can store product assets (images) in AEM Assets but you will have to manually store the asset URLs in Magento. Authors will have access to a tagging feature later in 2019 so that they can tag assets with product or catalog to enable product specific asset search.
 
-### 17. Since AEM creates product and catalog pages dynamically based on a generic template in AEM, what would I see if I were to open CRXDE Lite and check under content? Would I see an entire product tree based on the products in Magento? If not, how would an author enhance those pages?
+### 15. Since AEM creates product and catalog pages dynamically based on a generic template in AEM, what would I see if I were to open CRXDE Lite and check under content? Would I see an entire product tree based on the products in Magento? If not, how would an author enhance those pages?
 
 There are no JCR catalog or product pages anymore. See question 12.
 
-### 18. Will SPA store front work with AEM SPA editor?
+### 16. Will SPA store front work with AEM SPA editor?
 
 AEM can be used as an authoring tool for any kind of store front. Currently, hybrid rendering is used for the new store front. In the future, AEM will be used for authoring with SPA and PWA.
 
-### 19. How does PIM play into this framework?
+### 17. How does PIM play into this framework?
 
 PIM data gets exposed to AEM and clients via GraphQL requests.
