@@ -63,4 +63,4 @@ The CIF integration layer runs on a serverless I/O Runtime architecture. It stan
 
 #### Campaign Integration
 
-The Campaign integration provided extensible microservices on I/O Runtime that enriches *cart abandonment* events with live data before calling Campaign. It calls Magento to get cart details and calls Campaign's APIs to provide data.
+The [Campaign integration](https://github.com/adobe/commerce-cif-cart-abandonment) provided extensible microservices on I/O Runtime that enriches *cart abandonment* events with live data before calling Campaign. It calls Magento to get cart details and calls Campaign's APIs to provide data.
