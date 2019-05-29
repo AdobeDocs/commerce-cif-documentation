@@ -41,7 +41,7 @@ This list presents the main CIF elements:
 
 The connector connects AEM with Magento Cloud GraphQL endpoint or Adobe I/O Runtime GraphQL (available later).
 
-#### EM CIF Core Components
+#### AEM CIF Core Components
 
 The AEM components are server-side and client-side rendered components with Magento GraphQL support. They're used to create static, cacheable and SEO-friendly commerce storefornt based on AEM technologies.
 
