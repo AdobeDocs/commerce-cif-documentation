@@ -59,7 +59,7 @@ This integration works with the latest Magento 2.3.1 release. Since the 2.3.1 re
 
 ### Catalog Management
 
-From a catalog management point of view, Magento is responsible for all commerce data including categories, products, product attributes, etc. No commerce data is imported and stored in AEM. AEM Authors can view the product catalog stored in Magento via a read-only Product Console in AEM but cannot make any edits to the product catalog. Any changes to the product catalog can be made only via the Magento Admin UI.
+From a catalog management point of view, Magento is responsible for all commerce data including categories, products, product attributes, and so on. No commerce data is imported and stored in AEM. AEM Authors can view the product catalog stored in Magento via a read-only Product Console in AEM but cannot make any edits to the product catalog. Any changes to the product catalog can be made only via the Magento Admin UI.
 
 ### Checkout
 
