@@ -12,7 +12,7 @@ The overall architecture is as follows:
 
 The AEM Venia reference storefront is a modern production-ready reference storefront showcasing a basic B2C commerce journey. It can be used to kickstart commerce projects and accelerate projects using AEM, CIF, and Magento. It demonstrates best practices for integrating AEM and Magento and shows how to use the Commerce Core Components. It also provides pre-sales with a reference site to demo the integration between AEM and Magento.
 
-The project is open source and available on [GitHub](https://github.com/adobe/aem-core-cif-components).
+The project is open source and available on [GitHub](https://github.com/adobe/aem-cif-project-archetype).
 
 ## AEM CIF Core Components and AEM Authoring
 
