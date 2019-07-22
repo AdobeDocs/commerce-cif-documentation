@@ -184,6 +184,8 @@ In the following steps we will be adding modifying several files in the generate
     +         /config
     ```
 
+    > AEM uses the notion of [Run Modes](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configure-runmodes.html) to define specific configurations for specific environments. The easiest way to target different environments is via the folder name. In this case *config* will apply to all environments. You can create additional run-modes with different folder names to target different environments. More [details can be found here](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configure-runmodes.html#Definingconfigurationpropertiesforarunmode). This may be useful if you wish to have different Magento configurations based on Author vs. Publish or Dev/QA vs. Production.
+
 2. Create a new XML file beneath the `/config` folder named: `com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestoreclient.xml`
 
     ```diff
@@ -196,7 +198,7 @@ In the following steps we will be adding modifying several files in the generate
     +             com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestoreclient.xml
     ```
 
-    > Note the suffix of `-acmestoreclient` to the name of the file. The `GraphqlClientImpl` is an OSGi Configuration Factory and allows for multiple configurations. You can add more configurations, you just need to ensure that each has a unique suffix so that AEM doesn't get confused during installation.
+    > Note the suffix of `-acmestoreclient` to the name of the file. The `GraphqlClientImpl` is an OSGi Configuration Factory and allows for multiple configurations. You can add more configurations, you just need to ensure that each has a unique suffix so that AEM doesn't get confused during installation. More details about [OSGi Configuration with files can be found here](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configuring-osgi.html?cq_ck=1368002864971#OSGiConfigurationwithconfigurationfiles).
 
 3. Populate `com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestoreclient.xml` with the following, replacing *YOUR-MAGENTO-HOST* with your Magento hostname.
 
@@ -389,3 +391,4 @@ Next we will update the **samplecontent** module to match the configurations.
 * [AEM CIF connector and authoring tools](https://github.com/adobe/commerce-cif-connector)
 * [Set up a Local AEM Development Environment](https://helpx.adobe.com/experience-manager/kt/platform-repository/using/local-aem-dev-environment-article-setup.html)
 * [Getting Started with AEM Sites](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html)
+* [AEM Run Modes](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configure-runmodes.html)
