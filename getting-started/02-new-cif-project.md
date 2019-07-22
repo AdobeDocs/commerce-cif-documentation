@@ -167,10 +167,9 @@ Now that we have generated a new project, we can deploy the project code to a lo
 
 At this point the [Acme storefront](http://localhost:4502/editor.html/content/acme/us/en.html) does not render any products or categories. While the archetype does a lot of heavy lifting for us, it does **not** include the configurations needed to bind a Magento store. Aspects of these configurations will be unique to each customer.
 
-If you have followed the video on the [Getting Started AEM - Magento Integration](01-getting-started.md) you'll know that these configurations can be done via the AEM web UI. Now that we have generated our own project we can add these configurations directly to the project. Adding these configurations to the project will eliminate the need to manually setup the integration every time we start a new instance of AEM.
+If you have followed the video on the [Getting Started AEM - Magento Integration](01-getting-started.md) you'll know that these configurations can be done via the AEM web UI. Now that we have generated our own project we can add these configurations directly to the project. Adding these configurations to the project will eliminate the need to manually setup the integration every time we start a new instance of AEM and ensure consistency across environments.
 
-In the following steps we will be adding modifying several files in the generated project beneath `acme-store` (where you generated the project on the file system). You can use your favorite text-editor or import the Maven project using an [IDE like Eclipse, IntelliJ or Visual Studio Code](https://helpx.adobe.com/experience-manager/kt/platform-repository/using/local-aem-dev-environment-article-setup.html#setup-integrated-env)
-
+In the following steps we will be adding modifying several files in the generated project beneath `acme-store` (where you generated the project on the file system). You can use your favorite text-editor or import the Maven project using an [IDE like Eclipse, IntelliJ or Visual Studio Code](https://helpx.adobe.com/experience-manager/kt/platform-repository/using/local-aem-dev-environment-article-setup.html#setup-integrated-env).
 
 ### Add OSGi Configurations
 
@@ -227,7 +226,7 @@ In the following steps we will be adding modifying several files in the generate
     +            com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestoregraphql.xml
     ```
 
-  > Like the `GraphqlClientImpl`, `GraphqlDataServiceImpl` is an OSGi Configuration factory, hence the unique suffix of `-acmestoregraphql`.
+    > Like the `GraphqlClientImpl`, `GraphqlDataServiceImpl` is an OSGi Configuration factory, hence the unique suffix of `-acmestoregraphql`.
 
 5. Populate `com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestoregraphql.xml` with the following, replacing *YOUR_ROOT_CATEGORY_ID* with the number of your Magento's default category. This will be a number like *2*.
 
@@ -311,8 +310,10 @@ Next we will update the **samplecontent** module to match the configurations.
             cq:lastModifiedBy="admin"
     ```
 
+    > Note that **acme** is the identifier used for the GraphQL client configured in the **Add OSGi Configurations** above.
+
 3. Open the file `samplecontent/src/main/content/jcr_root/content/acme/us/en/products/.content.xml`. This is the configuration properties for the US Product Page.
-4. Update the `magentoRootCategoryId` from **4** to the value of your Magento default category id:
+4. Update the `magentoRootCategoryId` from **4** to the value of your Magento default category id. This will be the number used in step 5 of **Add OSGi Configurations** above.
 
     ```diff
     <?xml version="1.0" encoding="UTF-8"?>
@@ -333,9 +334,58 @@ Next we will update the **samplecontent** module to match the configurations.
             showMainCategories="{Boolean}true"/>
     ```
 
+### Deploy the project to AEM
+
+1. From the command line navigate into the `acme-store` project directory:
+
+    ```shell
+    $ cd acme-store/
+    ```
+
+2. Run the following command to build and deploy the entire project to AEM:
+
+    ```shell
+    $ mvn clean install -PautoInstallAll
+
+    ...
+
+    Package installed in 6388ms.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Reactor Summary:
+    [INFO]
+    [INFO] acme-store ......................................... SUCCESS [  0.306 s]
+    [INFO] Acme Store - Core .................................. SUCCESS [  7.399 s]
+    [INFO] Acme Store - UI apps ............................... SUCCESS [  3.211 s]
+    [INFO] Acme Store - UI content ............................ SUCCESS [  1.069 s]
+    [INFO] Acme Store - Sample Content ........................ SUCCESS [  2.257 s]
+    [INFO] Acme Store - All-in-one package .................... SUCCESS [  8.572 s]
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 24.882 s
+    [INFO] Finished at: 2019-07-18T17:36:20-07:00
+    [INFO] Final Memory: 46M/167M
+    [INFO] ------------------------------------------------------------------------
+    ```
+
+3. Navigate to the OSGi Configuration manager: [http://localhost:4502/system/console/configMgr](http://localhost:4502/system/console/configMgr) and verify that both OSGi Configurations have been persisted:
+
+    ![OSGi Configurations](assets/osgi-configurations.png)
+
+4. Navigate to the AEM Products Console: [http://localhost:4502/aem/products.html/var/commerce/products](http://localhost:4502/aem/products.html/var/commerce/products) and verify that the Acme Store products have binded successfully with Magento:
+
+    ![Commerce Console](assets/commerce-console.png)
+  
+5. Navigate to the AEM Sites Console and open the **US** `>` **EN** homepage: [http://localhost:4502/editor.html/content/acme/us/en.html](http://localhost:4502/editor.html/content/acme/us/en.html). Switch into **Preview** mode. The navigation of the site should now be populated with categories from the binded Magento instance:
+
+    ![US EN Home Page](assets/us-en-samplesite.png)
+
+    You should now be able to browse catalogs and products within the sample refrence storefront site.
 
 ## Additional Resources {#additional-resources}
 
 * [AEM CIF Archetype](https://github.com/adobe/aem-cif-project-archetype)
 * [AEM CIF components](https://github.com/adobe/aem-core-cif-components)
-* [AEM- CIF connector and authoring tools](https://github.com/adobe/commerce-cif-connector)
+* [AEM CIF connector and authoring tools](https://github.com/adobe/commerce-cif-connector)
+* [Set up a Local AEM Development Environment](https://helpx.adobe.com/experience-manager/kt/platform-repository/using/local-aem-dev-environment-article-setup.html)
+* [Getting Started with AEM Sites](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html)
