@@ -24,9 +24,15 @@ It is also considered a best practice to include the Adobe Public Maven Reposito
 
 ## Generate the project
 
-The next series of steps will take place using a UNIX based command line  terminal,  but should be similar if using a Windows terminal.
+1. Determine the latest version of the CIF Project Archetype by viewing [the latest release on GitHub](https://github.com/adobe/aem-cif-project-archetype/releases/latest).
 
-1. Verify that Maven is correctly installed and available from the command line:
+    ![latest release version](./assets/new-cif-project/latest-release-GH.png)
+
+    This should be a 3-digit version number. For the purposes of this guide, any time you see `x.y.z` replace with the latest version you see on GitHub, i.e **0.3.0**, ***0.5.0***, ect...
+
+    > The next series of steps will take place using a UNIX based command line  terminal,  but should be similar if using a Windows terminal.
+
+2. Verify that Maven is correctly installed and available from the command line:
 
     ```shell
     $ mvn -version
@@ -36,24 +42,23 @@ The next series of steps will take place using a UNIX based command line  termin
       Java home: /Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home
     ```
 
-2. Navigate to a directory, i.e a source folder, in which you want to generate the project:
+3. Navigate to a directory, i.e a source folder, in which you want to generate the project:
 
     ```shell
     $ cd ~/src
     ```
 
-3. Copy+Paste the following command to initiate the creation of a new project in interactive mode:
+4. Copy+Paste the following command to initiate the creation of a new project in interactive mode. Replace `x.y.z` with the **latest** release version number from **Step 1**.
 
     ```shell
     mvn archetype:generate \
     -DarchetypeGroupId=com.adobe.commerce.cif \
     -DarchetypeArtifactId=cif-project-archetype \
-    -DarchetypeVersion=0.2.0
+    -DoptionEmbedConnector=y \
+    -DarchetypeVersion=x.y.z
     ```
 
-    > *Note, in the above command we use version **0.2.0** of the archetype. As a best practice, always use the latest [released version of the archetype](https://github.com/adobe/aem-cif-project-archetype/releases).*
-
-4. The CIF Project Archetype will prompt a series of parameters to generate the project. For the sake of this tutorial and in order to see the effects of the different parameters we will generate the project for the fictitious **Acme Corporation**.
+5. The CIF Project Archetype will prompt a series of parameters to generate the project. For the sake of this tutorial and in order to see the effects of the different parameters we will generate the project for the fictitious **Acme Corporation**. Naturally, when generating a customer project you would use values that match the company/customer name.
 
     Use the following values:
 
@@ -62,20 +67,23 @@ The next series of steps will take place using a UNIX based command line  termin
     | groupId               | **com.acme.cif**     | Base Maven groupId                 |
     | appsFolderName        | **acme**             | `/apps` folder name                |
     | artifactId            | **acme-store**       | Base Maven ArtifactId              |
-    | version               | **1.0-SNAPSHOT**     | Version                            |
+    | version               | **0.0.1-SNAPSHOT**   | Version                            |
     | package               | **com.acme.cif**     | Java Source Package                |
     | artifactName          | **Acme Store**       | Maven Project Name                 |
     | componentGroupName    | **Acme.Content**     | AEM component group name           |
     | confFolderName        | **acme**             | `/conf` folder name                |
     | contentFolderName     | **acme**             | `/content` folder name             |
     | optionAemVersion      | *6.5.0*              | Target AEM version                 |
-    | optionIncludeExamples | *y*                  | Include Component Library examples |
+    | optionEmbedConnector  | *n*                  | Embed CIF connector (see note)     |
+    | optionIncludeExamples | *y*                  | Include Sample Content Package     |
     | packageGroup          | **acme**             | Content Package Group name         |
     | siteName              | **Acme Store**       | AEM site name                      |
 
-    > Note: If the archetype is executed in interactive mode the first time properties with default values can't be changed (see [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property confirmation at the end is denied and the questionnaire gets repeated or by passing the parameter in the command line (e.g. `-DoptionIncludeExamples=n`).
+    > Note: The **optionEmbedConnector** defaults to false. We have *explicitly* set it to true by adding the parameter `-DoptionEmbedConnector=y \` in **Step 4**. For simplicity we are embedding [CIF Connector](https://github.com/adobe/commerce-cif-connector) as part of the project. This practice is recommended for on-premise deployments **only**. 
+    >
+    > If planning on using [Cloud Manager](https://docs.adobe.com/content/help/en/experience-manager-cloud-manager/using/introduction-to-cloud-manager.html) and/or AMS you should **not** embed the connector. See the [usage](https://github.com/adobe/aem-cif-project-archetype#usage) instructions for more details. Note that the archetype parameters simply provide a *starting* point for projects. You can always modify the dependencies and build process later by updating the `pom.xml` files.
 
-5. The following folder and file structure will be generated by the archetype:
+6. The following folder and file structure will be generated by the archetype:
 
     ```plain
     ~/src/
@@ -89,14 +97,14 @@ The next series of steps will take place using a UNIX based command line  termin
               |--- pom.xml
     ```
 
-    * **Parent POM** - deploys maven modules and manages dependency versions
+    * **pom.xml** - Considered the Parent Reactor POM. This file deploys the maven modules and manages dependency versions.
     * **core** - Java bundle containing all core functionality like Sling Models, OSGi services, and other component related Java code such as servlets or request filters.
     * **ui.apps** - contains the `/apps` part of the project, including proxy components for CIF core components and WCM Core Components.
     * **ui.content** - contains structural content and configurations (`/content`, `/conf`) including CIF templates like catalog template, category template, and search result template.
-    * **samplecontent** - contains some sample assets and pages to get started. Once a project reaches maturity, this module can be removed and should be removed prior to production.
-    * **all** - combines all of the sub-modules and CIF dependencies into a single package that can be installed to a local AEM instance.
+    * **samplecontent** - contains some sample assets and pages to get started. Once a project reaches maturity, this module can be removed and **should be removed** prior to production.
+    * **all** - combines all of the sub-modules and CIF dependencies into a single package that can be installed to a local AEM instance. Note that this folder by design does not actually contain anything but a single `pom.xml` file.
 
-## Deploy the project to AEM
+## Build the project
 
 Now that we have generated a new project, we can deploy the project code to a local instance of AEM.
 
@@ -128,7 +136,7 @@ Now that we have generated a new project, we can deploy the project code to a lo
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
     [INFO] Total time: 24.882 s
-    [INFO] Finished at: 2019-07-18T17:36:20-07:00
+    [INFO] Finished at: 201X-XX-XX
     [INFO] Final Memory: 46M/167M
     [INFO] ------------------------------------------------------------------------
     ```
@@ -137,33 +145,67 @@ Now that we have generated a new project, we can deploy the project code to a lo
 
 4. Navigate to AEM to view the deployed packages: [http://localhost:4502/crx/packmgr/index.jsp](http://localhost:4502/crx/packmgr/index.jsp).
 
-    Search for the package **acme-store.all-1.0-SNAPSHOT.zip**:
+    Search for the package **acme-store.all-0.0.1-SNAPSHOT.zip**:
 
     ![Acme Store All Package](assets/acme-store-all-package.png)
 
-    Many more packages were installed than just the **acme-store.all-1.0-SNAPSHOT.zip** package. This is because the **acme-store.all-1.0-SNAPSHOT.zip** embedded multiple sub-packages within it. Some of these sub-packages even included sub-sub-packages! Luckily the archetype took care of setting up these dependencies for us.
+    Many more packages were installed than just the **acme-store.all-0.0.1-SNAPSHOT.zip** package. This is because the **acme-store.all-0.0.1-SNAPSHOT.zip** embedded multiple sub-packages within it. Some of these sub-packages even included sub-sub-packages! Luckily the archetype took care of setting up these dependencies for us.
 
     Below are the important packages that were installed that you should be aware of:
 
-    **Project Packages**
+    ### Project Packages
 
-    * `acme-store.ui.apps-1.0-SNAPSHOT.zip` - This is the compiled package from the **ui.apps** module generated by the archetype. All of the components and customizations related to the Acme store project will be managed here.
-    * `acme-store.ui.content-1.0-SNAPSHOT.zip` - This is the compiled package from the **ui.content** module generated by the archetype. All of the configurations and policies related to the Acme store project will be managed here.
-    * `acme-store.samplecontent-1.0-SNAPSHOT.zip` - This is the compiled package from the **samplecontent** module. Keep in mind this module is intended to be used just in the beginning of a project.
+    * `acme-store.ui.apps-0.0.1-SNAPSHOT.zip` - This is the compiled package from the **ui.apps** module generated by the archetype. All of the components and customizations related to the Acme store project will be managed here.
+    * `acme-store.ui.content-0.0.1-SNAPSHOT.zip` - This is the compiled package from the **ui.content** module generated by the archetype. All of the configurations and policies related to the Acme store project will be managed here.
+    * `acme-store.samplecontent-0.0.1-SNAPSHOT.zip` - This is the compiled package from the **samplecontent** module. Keep in mind this module is intended to be used just in the beginning of a project.
 
-    **Commerce Dependency Packages**
+    ### Commerce Dependency Packages
   
-    * `core.wcm.components.all-2.4.0.zip` - [AEM WCM Core Components](https://github.com/adobe/aem-core-wcm-components) are a standardized set of web content management components like Text, Image, and List. These components are used across AEM implementations.
-    * `core-cif-components-all-0.2.0.zip` - [AEM CIF Core Components](https://github.com/adobe/aem-core-cif-components) are a standardized set of commerce components for integrating AEM, CIF, and Magento.
-    * `cif-connector-content-0.1.1.zip` - [AEM CIF Connector](https://github.com/adobe/commerce-cif-connector) provides an AEM Commerce connector for Magento and GraphQL and authoring tools.
+    * `core.wcm.components.all-x.y.z.zip` - [AEM WCM Core Components](https://github.com/adobe/aem-core-wcm-components) are a standardized set of web content management components like Text, Image, and List. These components are used across AEM implementations.
+    * `core-cif-components-all-x.y.z.zip` - [AEM CIF Core Components](https://github.com/adobe/aem-core-cif-components) are a standardized set of commerce components for integrating AEM, CIF, and Magento.
+    * `cif-connector-content-x.y.z.zip` - [AEM CIF Connector](https://github.com/adobe/commerce-cif-connector) provides an AEM Commerce connector for Magento and GraphQL and authoring tools.
 
 5. Navigate to the AEM Sites Console to view the sample content: [http://localhost:4502/sites.html/content/acme/us](http://localhost:4502/sites.html/content/acme/us)
 
-    ![Acme Store Sites Console](assets/acme-store-sites-console.png)
+    ![Acme Store Sites Console](assets/new-cif-project/acme-store-sites-console.png)
 
-    If you have followed the video on the [Getting Started AEM - Magento Integration](01-getting-started.md) and installed the [Venia Demo Store Project](https://github.com/adobe/aem-cif-project-archetype/releases/tag/latest) this should look familiar. This is because the **samplecontent** installed with the archetype is the same content that the Venia Demo Store project uses. Now that we have our own AEM project, with a custom namespace, we can use the Venia Store as a base and begin to customize the project to meet our needs.
+    If you have followed the video on the [Getting Started AEM - Magento Integration](01-getting-started.md) and installed the [Venia Demo Store Project](https://github.com/adobe/aem-cif-project-archetype/releases/tag/latest) this structure should look familiar. This is because the **samplecontent** installed with the archetype is the same content that the Venia Demo Store project uses. Now that we have our own AEM project, with a custom namespace, we can use the Venia Store as a base and begin to customize the project to meet our needs.
 
-## Setup AEM - Magento Integration
+## Apply Default Theme
+
+1. Open the US `>` English page: [http://localhost:4502/editor.html/content/acme/us/en.html](http://localhost:4502/editor.html/content/acme/us/en.html). You may see an un-styled page like the following:
+
+    ![Home Page Unstyled](./assets/new-cif-project/acme-home-unstyled.png)
+
+    Currently no CSS is being applied to the site. AEM [Client-Side](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/clientlibs.html) or clientlibs for short are the recommended way to load CSS and Javascript on to the site. The CIF Project is designed to make it easy for implementing projects to add unique brand styles to the project. Next we will apply the Venia Theme so we have a default style for the site.
+
+2. Open the Template associated with the English page by clicking the **Page Menu icon** `>` **Edit Template**.
+
+    ![Page Properties Menu](./assets/new-cif-project/edit-template-page.png)
+
+    This will open the Landing Page template: [http://localhost:4502/editor.html/conf/acme/settings/wcm/templates/landing-page/structure.html](http://localhost:4502/editor.html/conf/acme/settings/wcm/templates/landing-page/structure.html).
+
+3. On the Landing Page template, click the **Page Menu icon** `>` **Page Policy** item to open up the Page policies for the template.
+
+    ![Edit Page Policy](./assets/new-cif-project/edit-page-policy.png)
+
+4. In the Page Policy dialog select from the dropdown the **Acme Store Page Policy**. This will auto-populate the Client Libraries selection to include **wcm.foundation.components.page.responsive** and **venia.theme**.
+
+    ![Page Policy Dialog](./assets/new-cif-project/page-policy-selection.png)
+
+    * **wcm.foundation.components.page.responsive** is responsible for including AEM's responsive grid CSS files and allows for using the editor's [Layout mode](https://helpx.adobe.com/experience-manager/6-5/sites/authoring/using/responsive-layout.html) feature.
+
+    * **venia.theme** is the default theme for the Venia demo storefront. The CSS files for these files are actually included in the Acme store project in the **ui.apps** folder. You can view these files at `ui.apps/src/main/content/jcr_root/apps/acme/clientlibs/theme`.
+
+    Click the **checkbox** in the upper right to save your changes.
+
+5. Return to English Home page: [http://localhost:4502/editor.html/content/acme/us/en.html](http://localhost:4502/editor.html/content/acme/us/en.html). You should now see the familiar Venia styles applied.
+
+    ![Venia theme applied](./assets/new-cif-project/venia-home-page-styled.png)
+
+6. Other pages, like Category and Product, use different templates. Repeat the above steps for all of the templates at [http://localhost:4502/libs/wcm/core/content/sites/templates.html/conf/venia](http://localhost:4502/libs/wcm/core/content/sites/templates.html/conf/venia) to apply the Venia style everywhere.
+
+## Add Magento Configurations
 
 At this point the [Acme storefront](http://localhost:4502/editor.html/content/acme/us/en.html) does not render any products or categories. While the archetype does a lot of heavy lifting for us, it does **not** include the configurations needed to bind a Magento store. Aspects of these configurations will be unique to each customer.
 
@@ -209,11 +251,14 @@ In the following steps we will be adding modifying several files in the generate
       acceptSelfSignedCertificates="{Boolean}false"
       identifier="acme"
       maxHttpConnections="{Long}20"
+      httpMethod="GET"
       url="https://YOUR-MAGENTO-HOST/graphql"/>
 
     ```
 
-    > Note that we are setting the identifer to **acme**. This will be used in several locations in the following steps.
+    > Note that we are setting the identifer to **acme**. This will be used in several locations in the following steps. 
+    >
+    > Also note the httpMethod is set to GET. Starting with version **2.3.2**, Magento supports and can cache some GraphQL queries when using GET. More [details about this configuration can be found here](https://github.com/adobe/aem-core-cif-components/wiki/configuration#cif-magento-graphql-base-configuration).
 
 4. Create a second XML file beneath the `/config` folder named: `com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestoregraphql.xml`
 
@@ -230,9 +275,7 @@ In the following steps we will be adding modifying several files in the generate
 
     > Like the `GraphqlClientImpl`, `GraphqlDataServiceImpl` is an OSGi Configuration factory, hence the unique suffix of `-acmestoregraphql`.
 
-5. Populate `com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestoregraphql.xml` with the following, replacing *YOUR_ROOT_CATEGORY_ID* with the number of your Magento's default category. This will be a number like *2*.
-
-    ![Magento Root Category ID](assets/magento-default-category.png)
+5. Populate `com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestoregraphql.xml` with the following:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -245,54 +288,10 @@ In the following steps we will be adding modifying several files in the generate
         identifier="acme"
         productCachingEnabled="{Boolean}true"
         productCachingSize="{Long}1000"
-        productCachingTimeMinutes="{Long}5"
-        rootCategoryId="{Long}YOUR_ROOT_CATEGORY_ID"
-        storeCode="default"/>
+        productCachingTimeMinutes="{Long}5" />
     ```
 
     > Note the `identifier` is set to **acme**, corresponding to the `GraphqlClientImpl` configuration from Step 3.
-
-### Add Product Console Binding
-
-1. Beneath `ui.content/src/main/content/META-INF/vault/` open the file `filter.xml`
-2. Add a new filter root to the configuration:
-
-    ```diff
-      <?xml version="1.0" encoding="UTF-8"?>
-      <workspaceFilter version="1.0">
-          <filter root="/conf/acme" mode="merge"/>
-          <filter root="/content/acme" mode="merge"/>
-          <filter root="/content/dam/acme" mode="merge"/>
-    +     <filter root="/var/commerce/products/acme-store" />
-      </workspaceFilter>
-    ```
-3. Create a folder structure beneath `ui.content/src/main/content/jcr_root` that matches the path added in the previous step:
-
-    ```diff
-    /ui.content
-      ...
-        /jcr_root
-            /conf
-            /content
-    +       /var
-    +         /commerce
-    +           /products
-    +             /acme-store
-    ```
-
-4. Beneath the `ui.content/src/main/content/jcr_root/var/commerce/products/acme-store` folder add a new file named `.content.xml`. Populate the file with the following:
-
-  ```xml
-  <?xml version="1.0" encoding="UTF-8"?>
-  <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-      cq:catalogDataResourceProviderFactory="magento-graphql"
-      cq:catalogIdentifier="acme"
-      jcr:language="en"
-      jcr:primaryType="sling:Folder"
-      jcr:title="Acme Store"/>
-  ```
-
-  > Note the `cq:catalogIdentifier` is set to **acme** which corresponds to the OSGi Configuration added earlier.
 
 ### Update Sample Content
 
@@ -336,7 +335,7 @@ Next we will update the **samplecontent** module to match the configurations.
             showMainCategories="{Boolean}true"/>
     ```
 
-### Deploy the project to AEM
+## Finish local setup
 
 1. From the command line navigate into the `acme-store` project directory:
 
@@ -344,7 +343,7 @@ Next we will update the **samplecontent** module to match the configurations.
     $ cd acme-store/
     ```
 
-2. Run the following command to build and deploy the entire project to AEM:
+2. Run the following command to re-build and deploy the entire project to AEM:
 
     ```shell
     $ mvn clean install -PautoInstallAll
@@ -372,15 +371,35 @@ Next we will update the **samplecontent** module to match the configurations.
 
 3. Navigate to the OSGi Configuration manager: [http://localhost:4502/system/console/configMgr](http://localhost:4502/system/console/configMgr) and verify that both OSGi Configurations have been persisted:
 
-    ![OSGi Configurations](assets/osgi-configurations.png)
+    ![OSGi Configurations](assets/new-cif-project/osgi-configurations.png)
 
-4. Navigate to the AEM Products Console: [http://localhost:4502/aem/products.html/var/commerce/products](http://localhost:4502/aem/products.html/var/commerce/products) and verify that the Acme Store products have binded successfully with Magento:
+4. Navigate to the AEM Products Console: [http://localhost:4502/aem/products.html/var/commerce/products](http://localhost:4502/aem/products.html/var/commerce/products).
 
-    ![Commerce Console](assets/commerce-console.png)
+5. In the upper right-hand corner, click **Create** `>` **Bind Products**:
+
+    ![Bind Products](./assets/new-cif-project/bind-products-button.png)
+
+6. Fill out the Bind Products Wizard with the following values:
+
+    | Property           | Value                     |
+    |--------------------|---------------------------|
+    | Title              | Acme Store                |
+    | Name*              | acme-store                |
+    | Commerce provider* | magento-graphql           |
+    | Magento Store      | (leave blank for default) |
+    | Root category id   | YOUR_ROOT_CATEGORY_ID     |
+    | Project            | acme                      |
+    | Language           | English                   |
+
+    ![Bind product wizard](./assets/new-cif-project/bind-products-wizard.png)
+
+7. Click **Bind** and you should see the categories and products pulled from your Magento instance:
+
+    ![Commerce Console](assets/new-cif-project/commerce-console.png)
   
-5. Navigate to the AEM Sites Console and open the **US** `>` **EN** homepage: [http://localhost:4502/editor.html/content/acme/us/en.html](http://localhost:4502/editor.html/content/acme/us/en.html). Switch into **Preview** mode. The navigation of the site should now be populated with categories from the binded Magento instance:
+8. Navigate to the AEM Sites Console and open the **US** `>` **EN** homepage: [http://localhost:4502/editor.html/content/acme/us/en.html](http://localhost:4502/editor.html/content/acme/us/en.html). Switch into **Preview** mode. The navigation of the site should now be populated with categories from the binded Magento instance:
 
-    ![US EN Home Page](assets/us-en-samplesite.png)
+    ![US EN Home Page](assets/new-cif-project/us-en-samplesite.png)
 
     You should now be able to browse catalogs and products within the sample refrence storefront site.
 
