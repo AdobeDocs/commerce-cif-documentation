@@ -147,7 +147,7 @@ Now that we have generated a new project, we can deploy the project code to a lo
 
     Search for the package **acme-store.all-0.0.1-SNAPSHOT.zip**:
 
-    ![Acme Store All Package](assets/acme-store-all-package.png)
+    ![Acme Store All Package](assets/new-cif-project/acme-store-all-package.png)
 
     Many more packages were installed than just the **acme-store.all-0.0.1-SNAPSHOT.zip** package. This is because the **acme-store.all-0.0.1-SNAPSHOT.zip** embedded multiple sub-packages within it. Some of these sub-packages even included sub-sub-packages! Luckily the archetype took care of setting up these dependencies for us.
 
