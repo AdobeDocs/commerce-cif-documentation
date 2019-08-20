@@ -15,6 +15,12 @@
         "pages": [],
         "path": "AdobeDocs/commerce-cif-documentation/master/getting-started/01-getting-started.md",
         "title": "Getting Started"
+    },
+    {
+        "importedFileName": "New CIF Project Setup",
+        "pages": [],
+        "path": "AdobeDocs/commerce-cif-documentation/master/getting-started/02-new-cif-project.md",
+        "title": "New CIF Project Setup"        
     }
    ]
 }
