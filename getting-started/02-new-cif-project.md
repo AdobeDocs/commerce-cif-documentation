@@ -74,7 +74,7 @@ It is also considered a best practice to include the Adobe Public Maven Reposito
     | confFolderName        | **acme**             | `/conf` folder name                |
     | contentFolderName     | **acme**             | `/content` folder name             |
     | optionAemVersion      | *6.5.0*              | Target AEM version                 |
-    | optionEmbedConnector  | *n*                  | Embed CIF connector (see note)     |
+    | optionEmbedConnector  | *y*                  | Embed CIF connector (see note)     |
     | optionIncludeExamples | *y*                  | Include Sample Content Package     |
     | packageGroup          | **acme**             | Content Package Group name         |
     | siteName              | **Acme Store**       | AEM site name                      |
@@ -403,7 +403,7 @@ Next we will update the **samplecontent** module to match the configurations.
 
     You should now be able to browse catalogs and products within the sample refrence storefront site.
 
-## Additional Resources {#additional-resources}
+## Additional Resources 
 
 * [AEM CIF Archetype](https://github.com/adobe/aem-cif-project-archetype)
 * [AEM CIF components](https://github.com/adobe/aem-core-cif-components)
