@@ -9,16 +9,16 @@ The Commerce Integration Framework is an add-on module for AEM and provides a se
 
 The main benefits are:
 
-1. The integration is an abstraction layer to standardize and encapsulate integrations with multiple systems. 
+- The integration is an abstraction layer to standardize and encapsulate integrations with multiple systems. 
 
-2. CIF supports headless/omnichannel experiences:
+- CIF supports headless/omnichannel experiences:
 
-   - Single Page applications and Multi Page Applications
-   - GraphQL endpoints
+    - Single Page applications and Multi Page Applications
+    - GraphQL endpoints
    
-3. CIF provides serverless, microservice-based process and business logic layer for customization and extension of commerce services   
+- CIF provides serverless, microservice-based process and business logic layer for customization and extension of commerce services   
 
-4. CIF provides out-of-the-box integrations with Adobe solutions such as AEM, Magento, and Campaign Standard
+- CIF provides out-of-the-box integrations with Adobe solutions such as AEM, Magento, and Campaign Standard
 
 
 ## CIF on Adobe I/O Runtime
