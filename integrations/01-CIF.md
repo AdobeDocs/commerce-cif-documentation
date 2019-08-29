@@ -29,8 +29,6 @@ This is planned for 2020.
 
 ## CIF Elements
 
-This list presents the main CIF elements:
-
 #### AEM CIF Cloud Connector
 
 The connector connects AEM with Magento Cloud GraphQL endpoint or Adobe I/O Runtime GraphQL (available later). The connector allows AEM to retrieve commerce data.
@@ -55,7 +53,16 @@ The CIF integration layer is used to standardize integrations with other commerc
 
 The [Campaign integration](https://github.com/adobe/commerce-cif-cart-abandonment) provides extensible microservices on I/O Runtime that enriches _cart abandonment_ events with live data before calling Campaign. It calls Magento to get cart details and calls Campaign's APIs to provide data. This is a reference to showcase Campaign-Magento integration using I/O Runtime.
 
-## Common AEM-Commerce Integration Patterns
+## AEM-Commerce Integration Patterns
 
-![AEM Integration Patterns](images/aem-integration-patterns.jpg)
+Some of the commonly supported AEM-Commerce integration patterns are shown below.
 
+![AEM CIF Integration Patterns](images/aem-cif-integration-patterns.jpg)
+
+#### Integration Pattern 1
+
+In this pattern, a 3rd party solution (non-AEM) owns the glass and embeds AEM authored content. The AEM authored content can be rendered either client-side or server-side. Authors or marketers can use AEM's authoring capabilities to create content and embed it in a 3rd party solution. 
+
+#### Integration Pattern 2
+
+This is a common integration pattern where the glass or presentation layer is split between AEM and a Commerce solution. Usually, the Commerce solution delivers the non-marketing pages such as checkout and my account. 
