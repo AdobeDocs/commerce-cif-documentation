@@ -57,5 +57,5 @@ The [Campaign integration](https://github.com/adobe/commerce-cif-cart-abandonmen
 
 ## Common AEM-Commerce Integration Patterns
 
-
+![Integration Patterns](images/integration-patterns.jpg)
 
