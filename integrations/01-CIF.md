@@ -54,3 +54,7 @@ The CIF integration layer is used to standardize integrations with other commerc
 #### Campaign Integration
 
 The [Campaign integration](https://github.com/adobe/commerce-cif-cart-abandonment) provides extensible microservices on I/O Runtime that enriches _cart abandonment_ events with live data before calling Campaign. It calls Magento to get cart details and calls Campaign's APIs to provide data. This is a reference to showcase Campaign-Magento integration using I/O Runtime.
+
+## Supported AEM-Commerce Integration Patterns
+
+
