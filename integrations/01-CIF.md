@@ -1,37 +1,31 @@
 # Commerce Integration Framework Introduction
 
-Adobe’s Commerce Integration Framework (CIF) is Adobe's recommended pattern to integrate and extend commerce services from Magento and other third party commerce solutions with the Experience Cloud. This enables Adobe Customers to deliver extraordinary and personalized omnichannel shopping experience based on state-of-the-art technology.
+Adobe’s Commerce Integration Framework (CIF) is Adobe's recommended pattern to integrate and extend commerce services from Magento and other third party commerce solutions with the Experience Cloud. This enables Adobe Customers to deliver extraordinary and personalized omnichannel shopping experience based on state-of-the-art technology. 
 
-## Principles
+The Commerce Integration Framework is an add-on module for AEM and provides a set of tools, components, code, documentation to accelerate integrations between AEM and commerce solutions and reduce TCO. 
 
-The CIF provides you with adaptable Commerce business processes that are exposed as microservices:
-
-- Microservices are small, modular services that provide a specific business function.
-
-- Easily developed and customized to complex support omnichannel scenarios and quickly adapt to changing market conditions.
-
-- Reduces the time, cost, and complexity of supporting complex omnichannel commerce scenarios.
 
 ## CIF Benefits
 
 The main benefits are:
 
-1. The integration is an abstraction layer to standardize and encapsulate integrations with multiple systems. It provides a flexible and re-usable customization for every service.
+1. The integration is an abstraction layer to standardize and encapsulate integrations with multiple systems. 
 
-2. The extension is a serverless, microservice-based process and business logic layer that allows you to customize and extend commerce services.
+2. CIF supports headless/omnichannel experiences:
 
-3. CIF supports headless/omnichannel experiences:
-
-   - Single Page applications and Multipe Pages Applications
+   - Single Page applications and Multi Page Applications
    - GraphQL endpoints
+   
+3. CIF provides serverless, microservice-based process and business logic layer for customization and extension of commerce services   
 
-4. CIF provides bi-directional integrations with the Experience Cloud. That means integrated SDKs to leverage the power of Adobe's services and solutions, as well as out-of-the-box integrations with Adobe solutions such as Campaign, and AEM.
+4. CIF provides out-of-the-box integrations with Adobe solutions such as AEM, Magento, and Campaign Standard
+
 
 ## CIF on Adobe I/O Runtime
 
 The CIF on Adobe I/O Runtime enables two use-cases: 1. Third party integrations via microservice layer and 2. Extensibility of microservices. This architecture is based on [OpenWhisk](https://openwhisk.apache.org) & [Adobe I/O Runtime](https://www.adobe.io/apis/cloudplatform/runtime.html). The main building blocks of the commerce services are serverless functions (OpenWhisk actions). These actions run on Adobe I/O Runtime inside an isolated container, stateless and serverless interacting with the commerce backend system or other endpoints via their APIs.
 
-This will be available later in 2019.
+This is planned for 2020.
 
 ## CIF Elements
 
@@ -39,20 +33,24 @@ This list presents the main CIF elements:
 
 #### AEM CIF Cloud Connector
 
-The connector connects AEM with Magento Cloud GraphQL endpoint or Adobe I/O Runtime GraphQL (available later).
+The connector connects AEM with Magento Cloud GraphQL endpoint or Adobe I/O Runtime GraphQL (available later). The connector allows AEM to retrieve commerce data.
 
 #### AEM CIF Core Components
 
 The AEM components are server-side and client-side rendered components with Magento GraphQL support. They're used to create static, cacheable and SEO-friendly commerce storefornt based on AEM technologies.
 
-#### AEM Venia Storefront
+#### AEM CIF Archetype with AEM Venia Storefront
 
-This is the storefront accelerator for AEM (Author, Preview, Deploy). It supports Adobe Commerce GraphQL endpoints and works with [AEM CIF Core Components](https://github.com/adobe/aem-core-cif-components) & [AEM Sites Core Components](https://github.com/adobe/aem-core-wcm-components). It is a reference store-front and allows you to kickstart projects to quickly build a standard storefront based on AEM technologies.
+The AEM CIF Archetype is a Maven project to provide a starting point for AEM commerce projects. It provides a B2C storefront for AEM (Author, Preview, Deploy) and supports Adobe Commerce GraphQL endpoints. It uses [AEM CIF Core Components](https://github.com/adobe/aem-core-cif-components) & [AEM Sites Core Components](https://github.com/adobe/aem-core-wcm-components). 
 
-#### CIF Extension & Integration Layer
+#### CIF Extension Layer
 
-The CIF extension & integration layer runs on a serverless I/O Runtime architecture. It allows you to extend end-to-end service calls by injecting business and process logic on a microservice level. Business logic would be for example to use location and channel to determine an inventory strategy. Process logic would be for example to retrieve personalized information. It is also used to standardize third party solution integrations on a microservice level to encapsulate third party commerce solutions by mapping third party APIs against the Adobe Commerce APIs.
+The CIF extension layer is a middle layer to host complex business logic. It runs on the Adobe I/O Runtime platform which is Adobe's serverless platform. It allows you to extend end-to-end service calls by injecting business and process logic on a microservice level. Business logic would be for example to use location and channel to determine an inventory strategy. Process logic would be for example to retrieve personalized information. 
+
+#### CIF Integration Layer
+
+The CIF integration layer is used to standardize integrations with other commerce solutions. It runs on the Adobe I/O Runtime platform which is Adobe's serverless platform and enables integrations at a microservice level by mapping third party APIs against the Adobe Commerce APIs.
 
 #### Campaign Integration
 
-The [Campaign integration](https://github.com/adobe/commerce-cif-cart-abandonment) provided extensible microservices on I/O Runtime that enriches _cart abandonment_ events with live data before calling Campaign. It calls Magento to get cart details and calls Campaign's APIs to provide data.
+The [Campaign integration](https://github.com/adobe/commerce-cif-cart-abandonment) provides extensible microservices on I/O Runtime that enriches _cart abandonment_ events with live data before calling Campaign. It calls Magento to get cart details and calls Campaign's APIs to provide data. This is a reference to showcase Campaign-Magento integration using I/O Runtime.
