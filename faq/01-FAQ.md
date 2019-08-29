@@ -1,6 +1,5 @@
 # AEM - Magento Integration using Commerce Integration Framework FAQ
 
-This document answers 17 questions about the Magento integration with AEM.
 
 ### 1. Is GraphQL only used for Magento or will this be available for querying content authored on AEMs JCR?
 
