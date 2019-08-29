@@ -29,8 +29,6 @@ This is planned for 2020.
 
 ## CIF Elements
 
-This list presents the main CIF elements:
-
 #### AEM CIF Cloud Connector
 
 The connector connects AEM with Magento Cloud GraphQL endpoint or Adobe I/O Runtime GraphQL (available later). The connector allows AEM to retrieve commerce data.
