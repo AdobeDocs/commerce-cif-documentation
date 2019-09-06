@@ -52,3 +52,25 @@ The CIF integration layer is used to standardize integrations with other commerc
 #### Campaign Integration
 
 The [Campaign integration](https://github.com/adobe/commerce-cif-cart-abandonment) provides extensible microservices on I/O Runtime that enriches _cart abandonment_ events with live data before calling Campaign. It calls Magento to get cart details and calls Campaign's APIs to provide data. This is a reference to showcase Campaign-Magento integration using I/O Runtime.
+
+## AEM-Commerce Integration Patterns
+
+Some of the commonly supported AEM-Commerce integration patterns are shown below.
+
+![AEM CIF Integration Patterns](images/aem-cif-integration-patterns.jpg)
+
+#### Integration Pattern 1
+
+In this pattern, a 3rd party solution (non-AEM) owns the glass and embeds AEM authored content. The AEM authored content can be rendered either client-side or server-side. Authors or marketers can use AEM's authoring capabilities to create content and embed it in a 3rd party solution. 
+
+#### Integration Pattern 2
+
+This is a common integration pattern where the glass or presentation layer is split between AEM and a Commerce solution. Usually, the Commerce solution delivers the non-marketing pages such as checkout and my account and AEM delivers the marketing pages and store front catalog experience. In this pattern, you need to ensure that carts and user sessions are handled properly between the two systems to avoid a disjointed user experience. For e.g. Magento stores the cart & user session in a cookie, which can be shared between AEM & Magento. 
+
+#### Integration Pattern 3
+
+In this pattern, AEM owns the glass but a 3rd party solution can embed content. This enables easy re-use of existing content in a 3rd party solution. 
+
+#### Integration Pattern 4
+
+This is our recommended integration pattern where AEM owns the entire glass and integrates commerce services via Adobe Commerce GraphQL APIs. This pattern unlocks AEM's full flexibility to tailor rich media site designs across devices. 
