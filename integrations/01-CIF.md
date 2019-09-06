@@ -65,7 +65,7 @@ In this pattern, a 3rd party solution (non-AEM) owns the glass and embeds AEM au
 
 #### Integration Pattern 2
 
-This is a common integration pattern where the glass or presentation layer is split between AEM and a Commerce solution. Usually, the Commerce solution delivers the non-marketing pages such as checkout and my account and AEM delivers the marketing pages and store front catalog experience. In this pattern, you need to ensure that carts and user sessions are handled properly between the two systems to avoid a disjointed user experience. For e.g. Magento stores the user session in a cookie. One way to handoff the session is via [window.postmessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage). 
+This is a common integration pattern where the glass or presentation layer is split between AEM and a Commerce solution. Usually, the Commerce solution delivers the non-marketing pages such as checkout and my account and AEM delivers the marketing pages and store front catalog experience. In this pattern, you need to ensure that carts and user sessions are handled properly between the two systems to avoid a disjointed user experience. For e.g. Magento stores the cart & user session in a cookie, which can be shared between AEM & Magento. 
 
 #### Integration Pattern 3
 
