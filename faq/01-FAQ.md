@@ -44,7 +44,7 @@ A product search reference implementation is provided but no unified search with
 
 ### 11. How does Search work with AEM-Magento using CIF?
 
-CIF provides Search bar and Search Result components. The Search bar component sends a GraphQL request with the search term to Magento. Magento then returns a product list that includes product name, price, SLUG, etc. The Search Result component then displays the search results in a gallery view on a search result page created in AEM. The Search supports basic full-text search. We use the SLUG to build a reference to the PDP.
+CIF provides Search bar and Search Result components. The Search bar component sends a GraphQL request with the search term to Magento. Magento then returns a product list that includes product name, price, SLUG, etc. The Search Result component then displays the search results in a gallery view on a search result page created in AEM. The Search supports basic full-text search. We use the SLUG/url key to build a reference to the PDP.
 
 ### 11. How can product data be used in MSM or translations?
 
@@ -81,7 +81,7 @@ PIM data gets exposed to AEM and clients via GraphQL requests. Our recommendatio
 
 ### 20. How can we ensure PCI compliance when using AEM for the entire presentation layer?
 
-When using AEM on AMS and Magento cloud deployment, it is mandatory to use abstracted payment methods. This puts the browser client in direct communication with the payment gateway provider so that neither Adobe or Magento clouds hold or pass PCI sensitive data. This approach provides coverage for PCI compliance for the tech stacks and data centers. However, there are additional things to consider to be fully PCI compliant such as how employees interact with the system and data.
+When using AEM on AMS and Magento cloud deployment, it is mandatory to use abstracted payment methods. This puts the browser client in direct communication with the payment gateway provider so that neither Adobe or Magento clouds hold or pass PCI sensitive data. This approach provides coverage for PCI compliance for the tech stacks and data centers. However, there are additional things to consider to be fully PCI compliant such as how employees interact with the system and data. For more information about Magento PCI compliance, please refer to https://magento.com/pci-compliance
 
 
 
