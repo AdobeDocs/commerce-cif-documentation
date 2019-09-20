@@ -74,16 +74,24 @@
 ### What's new
 
 #### Features
-* Multi-template feature to allow authors to enrich specific product detail page or product list page. Authors can easily create a custom product detail page or product list page and use the product or category picker to assign the custom page to a specific product(s) or category(s)
+* First CIF Archetype released. This provides developers with several options 1.Deploy the AEM Venia storefront 2. Deploy scaffolding for a new project 3. Use CIF elements in an existing project
 
-* Multi-catalog 
+* Multi-level catalog navigation 
+
+* Pagination 
+
+* Client-side rendering of price attribute enabled in product detail and product list components. 
 
 
 #### Components
+* Server-side Product Carousel component to display a list of featured products in a carousel style.
+
+* Server-side Featured Category List component to display list of categories on an AEM page.
 
 
 
 ### What's improved
+* Support for Magento 2.3.2 and bug fixes related to product properties display in the product console.
 
 ***
 
