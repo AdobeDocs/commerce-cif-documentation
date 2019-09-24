@@ -11,10 +11,10 @@
 "base_path": "https://raw.githubusercontent.com",
 "pages":  [
     {
-        "importedFileName": "Tutorials",
+        "importedFileName": "Multi-Store Setup",
         "pages": [],
         "path": "AdobeDocs/commerce-cif-documentation/master/tutorials/02-multi-store-setup.md",
-        "title": "Tutorials"
+        "title": "Multi-Store Setup"
     }
    ]
 }
