@@ -28,7 +28,7 @@ Dynamic data such as price or inventory is not cached on the Dispatcher. Dynamic
 
 ### 7. How does cache invalidation for AEM Dispatcher work with AEM-Magento?
 
-We recommend setting up TTL-based cache invalidation for pages cached on the Dispatcher. For dynamic information such as price or stock, we recommend rendering the date client-side. For more information about TTL-based cache invalidation, please refer to https://helpx.adobe.com/experience-manager/kb/optimizing-the-dispatcher-cache.html
+We recommend setting up TTL-based cache invalidation for pages cached on the Dispatcher. For dynamic information such as price or stock, we recommend rendering the date client-side. For more information about TTL-based cache invalidation, please refer to <https://helpx.adobe.com/experience-manager/kb/optimizing-the-dispatcher-cache.html>
 
 ### 8. Why are you not using We.Retail?
 
