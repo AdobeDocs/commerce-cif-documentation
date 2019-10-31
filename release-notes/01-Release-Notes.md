@@ -1,6 +1,35 @@
 
 # Commerce Integration Framework GitHub Release Overview
 
+#### Release Date: October, 2019
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 0.6.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |0.5.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Archetype |0.5.0|[Release Notes](https://github.com/adobe/aem-cif-project-archetype/releases)|
+
+
+### What's new
+
+**Features**
+* Fully authorable templates for product detail page and product list page. Authors can now create new templates and drag and drop product list and product detail components on these templates. In addition to adding other components, authors can now change the layout of these templates too, giving them unlimited freedom to create amazing experiences combining marketing and commerce content. 
+
+* All author-friendly CIF core-components have been enhanced to support [AEM's Style System](https://helpx.adobe.com/experience-manager/6-5/sites/authoring/using/style-system.html). Example styles have been provided for the product list component.
+
+
+**Components**
+* React-based client-side components for account management. This release supports the following functionalities: Sign In, Forgot Password, and Create Account.
+
+
+### What's improved
+* Product detail and product list components have been enhanced to show dummy data to provide authors with a preview of the layout when these components are placed on a template/page.
+
+* Minicart and Checkout components now use React hooks for improved extensibility.
+
+***
+
+
 #### Release Date: September, 2019
 
 |GitHub| Version| Detailed Release Notes|
