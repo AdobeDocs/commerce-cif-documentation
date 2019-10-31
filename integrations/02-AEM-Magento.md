@@ -67,5 +67,5 @@ This integration uses client-side Cart component that renders the shopping cart 
 
 ### Account Management
 
-This integration uses client-side React-based components to support *Create Acct*, *Sign In*, and *Forgot Password* functionalities of account management. This component requires the AEM Dispatcher to be setup with GraphQL routing to enable the AEM page to access Magento's GraphQL endpoint. 
+Account management is handled by Magento but in our integration we have developed client-side React-based components to enable AEM to render the experience for the following functionalities: Create Acct, Sign In, and Forgot Password. These components require the AEM Dispatcher to be setup with GraphQL routing to enable the AEM page to access Magento's GraphQL endpoint. 
 
