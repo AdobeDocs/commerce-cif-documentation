@@ -55,7 +55,7 @@ For more dynamic attributes such as Inventory or Price, on the other hand, clien
 
 ### Commerce APIs
 
-This integration works with the latest Magento 2.3.2 release. Since the 2.3.2 release doesn't have full [GraphQL API](https://github.com/magento/graphql-ce/wiki/Roadmap) coverage, [REST APIs](https://devdocs.magento.com/guides/v2.3/rest/bk-rest.html) can be used for the missing features. 
+This integration works with the latest Magento 2.3.3 release. Since the 2.3.3 release doesn't have full [GraphQL API](https://github.com/magento/graphql-ce/wiki/Roadmap) coverage, [REST APIs](https://devdocs.magento.com/guides/v2.3/rest/bk-rest.html) can be used for the missing features. 
 
 ### Catalog Management
 
@@ -64,3 +64,8 @@ From a catalog management point of view, Magento is responsible for all commerce
 ### Checkout
 
 This integration uses client-side Cart component that renders the shopping cart and the checkout form to demonstrate a full experience integration pattern where you can deliver commerce experiences with Magento running in a completely headless way and AEM owning the glass. This component requires the AEM Dispatcher to be setup with GraphQL routing to enable the AEM page to access Magento's GraphQL endpoint. Additionally, it is mandatory to use abstracted payment methods. This puts the browser client in direct communication with the payment gateway provider so that neither Adobe or Magento clouds hold or pass PCI sensitive data. 
+
+### Account Management
+
+This integration uses client-side React-based components to support *Create Acct*, *Sign In*, and *Forgot Password* functionalities of account management. This component requires the AEM Dispatcher to be setup with GraphQL routing to enable the AEM page to access Magento's GraphQL endpoint. 
+
