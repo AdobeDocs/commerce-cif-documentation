@@ -21,6 +21,12 @@
         "pages": [],
         "path": "AdobeDocs/commerce-cif-documentation/master/tutorials/02-multi-store-setup.md",
         "title": "Multi-Store Setup"
+    },
+    {
+        "importedFileName": "Shopping Cart Setup",
+        "pages": [],
+        "path": "AdobeDocs/commerce-cif-documentation/master/tutorials/03-shopping-cart-setup.md",
+        "title": "Shopping Cart Setup"
     }
    ]
 }
