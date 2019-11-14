@@ -7,7 +7,8 @@ Adobe has adopted Magento’s GraphQL APIs as its official commerce API for all 
 
 ### 2. How does Adobe I/O come into play? Does AEM talk to Magento directly?
 
-The AEM commerce connector connects to Magento GraphQL. Hence, AEM can directly connect to Magento without an I/O Runtime layer. If there is need to integrate additional third party solutions, the I/O Runtime platform can be used to host the mapping layer to connect the Magento GraphQL APIs to any third party solutions APIs.
+The AEM commerce connector connects to Magento GraphQL. Hence, AEM can directly connect to Magento without an I/O Runtime layer. If there is a need to integrate a non-Magento commerce backend (third party solution) with AEM, the I/O Runtime platform can be used to host the mapping layer to connect the Magento GraphQL APIs to any third party solutions APIs. For more details on this, please refer to this [reference implementation](https://github.com/adobe/commerce-cif-graphql-integration-reference). For non-Magento solutions, AEM would be configured to point to the I/O Runtime endpoint.
+
 The I/O Runtime platform can also be used to extend or customize commerce services. For this use-cases you would call the I/O Runtime endpoint that will then host a customized implementation of the respective service. Integration and extension use-cases can be combined.
 
 ### 3. Can Product assets (images) be stored and referenced from AEM via Magento admin? How can assets from Dynamic Media be consumed?
@@ -52,7 +53,7 @@ Product data is usually already translated in PIM or in Magento. The AEM – Mag
 
 ### 13. How does CIF work with other commerce platforms?
 
-Integration with third party solutions such as other commerce solutions is planned for 2020 via the I/O Runtime platform. GraphQL support will be enabled on the I/O Runtime platform so that you can build a mapping layer (hosted on I/O Runtime) to map the GraphQL APIs to the third party solution’s APIs to build the integration.
+Integration with third party solutions such as other commerce solutions (non-Magento) is done via the I/O Runtime platform.  We have built a [reference implementation](https://github.com/adobe/commerce-cif-graphql-integration-reference) to demonstrate how this is done. This enables the reuse of the [AEM CIF Cloud Connector](https://github.com/adobe/commerce-cif-connector) and the [AEM CIF Core Components](https://github.com/adobe/aem-core-cif-components) by exposing the Magento GraphQL API on top of any thirdd-party commerce platform. To offer maximum flexibility and scalability, this integration layer is deployed on the serverless [Adobe I/O Runtime platform](https://www.adobe.io/apis/experienceplatform/runtime.html).
 
 ### 14. Is there a way to enhance the product data with commercial text? Where do you do this? In AEM or in Magento?
 
