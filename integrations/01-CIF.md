@@ -23,9 +23,9 @@ The main benefits are:
 
 ## CIF on Adobe I/O Runtime
 
-The CIF on Adobe I/O Runtime enables two use-cases: 1. Third party integrations via microservice layer and 2. Extensibility of microservices. This architecture is based on [OpenWhisk](https://openwhisk.apache.org) & [Adobe I/O Runtime](https://www.adobe.io/apis/cloudplatform/runtime.html). The main building blocks of the commerce services are serverless functions (OpenWhisk actions). These actions run on Adobe I/O Runtime inside an isolated container, stateless and serverless interacting with the commerce backend system or other endpoints via their APIs.
+The CIF on Adobe I/O Runtime enables two use-cases: 1. Third party integrations via microservice layer and 2. Extensibility of microservices. This architecture is based on [OpenWhisk](https://openwhisk.apache.org) & [Adobe I/O Runtime](https://www.adobe.io/apis/cloudplatform/runtime.html). The main building blocks of the commerce services are serverless functions (OpenWhisk actions). These actions run on Adobe I/O Runtime inside an isolated container, stateless and serverless interacting with the commerce backend system or other endpoints via their APIs. 
 
-This is planned for 2020.
+Extensibility of microservices is planned for 2020.
 
 ## CIF Elements
 
@@ -47,7 +47,7 @@ The CIF extension layer is a middle layer to host complex business logic. It run
 
 #### CIF Integration Layer
 
-The CIF integration layer is used to standardize integrations with other commerce solutions. It runs on the Adobe I/O Runtime platform which is Adobe's serverless platform and enables integrations at a microservice level by mapping third party APIs against the Adobe Commerce APIs.
+The CIF integration layer is used to standardize integrations with other commerce solutions. It runs on the Adobe I/O Runtime platform which is Adobe's serverless platform and enables integrations at a microservice level by mapping third party APIs against the Adobe Commerce APIs. To help you get started on building third party integrations with AEM, we have created a [reference implementation](https://github.com/adobe/commerce-cif-graphql-integration-reference) to demonstrate how a non-Magento commerce backend can be integrated with the AEM CIF Cloud Connector and AEM CIF Core Components via Adobe Commerce APIs (Magento GraphQL APIs). 
 
 #### Campaign Integration
 
