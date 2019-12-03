@@ -1,6 +1,41 @@
 
 # Commerce Integration Framework GitHub Release Overview
 
+#### Release Date: November, 2019
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 0.7.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |0.6.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Archetype |0.6.0|[Release Notes](https://github.com/adobe/aem-cif-project-archetype/releases)|
+
+
+### What's new
+
+**Features**
+* Authors can preview product detail and product list pages with products/categories with a new "View with product/category" option in the Sites editor.
+
+* Authors can tag assets by product SKU and search for product-specific assets by SKU. 
+
+
+**Components**
+* Add/remove coupon support added in shopping cart.
+
+* Braintree payment support added in AEM Venia store front.
+
+
+### What's improved
+* Category/Product pickers enhanced to respect specified Magento store view in a multi-store setup.
+
+* React-based components available as a npm package. This allows developers to use the React Components package as a dependency for a new React project to allow customization of existing components or develop new React-based components.
+
+* GraphQL query customization simplified. This allows developers to customize CIF core components with less code.
+
+
+***
+
+
+
 #### Release Date: October, 2019
 
 |GitHub| Version| Detailed Release Notes|
