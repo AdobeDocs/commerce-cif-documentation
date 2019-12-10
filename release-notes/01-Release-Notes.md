@@ -5,9 +5,9 @@
 
 |GitHub| Version| Detailed Release Notes|
 |:-------|:-----:|---------------------:|
-|CIF Connector | 0.7.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Connector | 0.7.1|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
 |CIF Core Components |0.6.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
-|CIF Archetype |0.6.0|[Release Notes](https://github.com/adobe/aem-cif-project-archetype/releases)|
+|CIF Archetype |0.6.2|[Release Notes](https://github.com/adobe/aem-cif-project-archetype/releases)|
 
 
 ### What's new
