@@ -380,11 +380,11 @@ Next we will update the **samplecontent** module to match the configurations.
 
     You should now be able to browse catalogs and products within the sample refrence storefront site.
 
-## Additional Resources 
+## Additional Resources
 
 * [AEM CIF Archetype](https://github.com/adobe/aem-cif-project-archetype)
 * [AEM CIF components](https://github.com/adobe/aem-core-cif-components)
 * [AEM CIF connector and authoring tools](https://github.com/adobe/commerce-cif-connector)
-* [Set up a Local AEM Development Environment](https://helpx.adobe.com/experience-manager/kt/platform-repository/using/local-aem-dev-environment-article-setup.html)
+* [Set up a Local AEM Development Environment](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html)
 * [Getting Started with AEM Sites](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html)
 * [AEM Run Modes](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configure-runmodes.html)
