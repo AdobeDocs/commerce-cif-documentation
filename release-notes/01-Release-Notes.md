@@ -1,6 +1,45 @@
 
 # Commerce Integration Framework GitHub Release Overview
 
+#### Release Date: January, 2019
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 0.8.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |0.8.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Archetype |0.7.0|[Release Notes](https://github.com/adobe/aem-cif-project-archetype/releases)|
+
+
+### What's new
+
+**Features**
+* Experience Fragment (XF) component added to enable customers to create XF with commerce context.
+
+
+**Components**
+* Change password functionality available in my account.
+
+* i18n support for AEM CIF server-side core components.
+
+* Generic related product component available.
+
+
+### What's improved
+* Support to display CTA button on product teaser.
+
+* Option to change/select images in the Featured Category List component.
+
+* Option to hide/display title/banner in the Product List component.
+
+* Drag and drop feature applied to Prodcut Carousel component.
+
+* Multiple bug fixes applied.
+
+
+***
+
+
+
 #### Release Date: November, 2019
 
 |GitHub| Version| Detailed Release Notes|
@@ -19,7 +58,7 @@
 
 
 **Components**
-* Add/remove coupon support added in shopping cart.
+* Pas
 
 * Braintree payment support added in AEM Venia store front.
 
