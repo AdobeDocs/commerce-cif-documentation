@@ -376,7 +376,15 @@ After the code for the project has been deployed to AEM, we should now be able t
 
     ![Multiple Product Teasers](./assets/04-style-cif-component/multiple-teasers-final.png)
 
-    Notice that each product teaser contains the same style. 
+    Notice that each product teaser contains the same style.
+
+### Troubleshooting
+
+You can verify in [CRXDE-Lite](http://localhost:4502/crx/de/index.jsp) that the updated CSS file has been deployed: [http://localhost:4502/crx/de/index.jsp#/apps/acme/clientlibs/theme/components/productteaser/teaser.css](http://localhost:4502/crx/de/index.jsp#/apps/acme/clientlibs/theme/components/productteaser/teaser.css)
+
+When deploying new CSS and/or JavaScript files it is also important to ensure the browser is not serving stale files. You can eliminate this by clearing the browser cache or starting a fresh browser session.
+
+AEM also attempts to cache client libraries for performance. Occasionally, following a code deployment the older files are served. You can manually invalidate AEM's client library cache using the [Rebuild Client Libraries tool](http://localhost:4502/libs/granite/ui/content/dumplibs.rebuild.html). *Invalidate Caches is the preferred method if you suspect AEM has cached an old version of a client library. Rebuild Libraries is inefficient and time consuming.*
 
 ### Congratulations!
 
