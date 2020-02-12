@@ -1,7 +1,7 @@
 
 # Commerce Integration Framework GitHub Release Overview
 
-#### Release Date: January, 2019
+#### Release Date: January, 2020
 
 |GitHub| Version| Detailed Release Notes|
 |:-------|:-----:|---------------------:|
