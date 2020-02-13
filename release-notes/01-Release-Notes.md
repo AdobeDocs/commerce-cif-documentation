@@ -1,7 +1,7 @@
 
 # Commerce Integration Framework GitHub Release Overview
 
-#### Release Date: January, 2019
+#### Release Date: January, 2020
 
 |GitHub| Version| Detailed Release Notes|
 |:-------|:-----:|---------------------:|
@@ -58,7 +58,7 @@
 
 
 **Components**
-* Pas
+* Add/remove coupon support added in shopping cart.
 
 * Braintree payment support added in AEM Venia store front.
 
