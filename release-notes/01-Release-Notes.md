@@ -58,6 +58,7 @@
 
 
 **Components**
+* Add/remove coupon support added in shopping cart.
 
 * Braintree payment support added in AEM Venia store front.
 
