@@ -58,7 +58,6 @@
 
 
 **Components**
-* Pas
 
 * Braintree payment support added in AEM Venia store front.
 
