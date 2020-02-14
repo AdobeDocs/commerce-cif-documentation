@@ -27,6 +27,12 @@
         "pages": [],
         "path": "AdobeDocs/commerce-cif-documentation/master/tutorials/03-shopping-cart-dispatcher.md",
         "title": "Shopping Cart Setup"
+    },
+    {
+        "importedFileName": "Styling CIF Components",
+        "pages": [],
+        "path": "AdobeDocs/commerce-cif-documentation/master/tutorials/04-style-cif-component.md",
+        "title": "Styling CIF Components"
     }
    ]
 }
