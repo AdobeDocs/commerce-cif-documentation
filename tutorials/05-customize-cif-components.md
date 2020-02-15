@@ -2,7 +2,9 @@
 
 [CIF Core Components](https://github.com/adobe/aem-core-cif-components) provides a standard set of Commerce components that can be used to accelerate a project that integrates Adobe Experience Manager (AEM) and Magento solutions. These components are production ready and can be [easily styled with CSS](./04-style-cif-component.md). Many implementations will also want to extend these components to meet business specific requirements.
 
-In this tutorial we will review several different extension points provided by CIF Core Components and AEM in general. We will do this by extending the capabilities of the [Product Teaser](https://github.com/adobe/aem-core-cif-components/tree/master/ui.apps/src/main/content/jcr_root/apps/core/cif/components/commerce/productteaser/v1/productteaser) component to include the ability to render a "New" banner. Content authors will have the ability to turn toggle this banner and determine how long to display the banner. The "age" of the product will be based on it's creation date in the Magento catalog. Once a product is a certain amount of days old, the "New" banner should automatically dissapear.
+In this tutorial we will review several different extension points provided by CIF Core Components and AEM in general. We will do this by extending the capabilities of the [Product Teaser](https://github.com/adobe/aem-core-cif-components/tree/master/ui.apps/src/main/content/jcr_root/apps/core/cif/components/commerce/productteaser/v1/productteaser) component to include the ability to render a "New" banner. Content authors will have the ability to turn toggle this banner and determine how long to display the banner. The "age" of the product will be based on it's creation date in the Magento catalog. Once a product is a certain amount of days old, the "New" banner should automatically disappear.
+
+ ![New Banner extended](./assets/05-customize-cif-components/new-banner-productteaser.png)
 
 ## Prerequisites
 
@@ -258,7 +260,7 @@ Next, we will customize the dialog of the Product Teaser component to allow an A
 
     ![Toggle badge](./assets/05-customize-cif-components/toggle-badge-checkbox.gif)
 
-    This gives the author some control over when the badge appears. However it would be ideal for the badge to dissappear automatically once the product has reached a certain age in day based on the entry for **Max Product Age**. For this we will need to implement some backend logic.
+    This gives the author some control over when the badge appears. However it would be ideal for the badge to disappear automatically once the product has reached a certain age in day based on the entry for **Max Product Age**. For this we will need to implement some backend logic.
 
 ## Updating the Sling Model for the Product Teaser
 
@@ -456,7 +458,7 @@ Now that we have had a chance to experiment with overriding the Sling Model meth
 
     ```
 
-    In the above method we first check to see if the author has enabled the badge functionality with the checkbox. Next we read in the value of the property `age` that is set as part of the dialog and represents the maximum number of days old a product should be until the banner dissappears. Finally we calculate how old the product is based on the `created_at` date. If after comparing the two values we return `true` to show the badge, `false` in all other cases.
+    In the above method we first check to see if the author has enabled the badge functionality with the checkbox. Next we read in the value of the property `age` that is set as part of the dialog and represents the maximum number of days old a product should be until the banner disappears. Finally we calculate how old the product is based on the `created_at` date. If after comparing the two values we return `true` to show the badge, `false` in all other cases.
 
 6. Finally one more addition needs to be made to the `productteaser.html` script in order to call the `isShowBadge()` method. Open the file at `ui.apps/src/main/content/jcr_root/apps/acme/components/commerce/productteaser/productteaser.html`. Make the following update:
 
