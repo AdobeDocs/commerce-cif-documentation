@@ -2,7 +2,7 @@
 
 [CIF Core Components](https://github.com/adobe/aem-core-cif-components) provides a standard set of Commerce components that can be used to accelerate a project that integrates Adobe Experience Manager (AEM) and Magento solutions. These components are production ready and can be [easily styled with CSS](./04-style-cif-component.md). Many implementations will also want to extend these components to meet business specific requirements.
 
-In this tutorial we will review several different extension points provided by CIF Core Components and AEM in general. We will do this by extending the capabilities of the [Product Teaser](https://github.com/adobe/aem-core-cif-components/tree/master/ui.apps/src/main/content/jcr_root/apps/core/cif/components/commerce/productteaser/v1/productteaser) component to include logic to render a "New" banner when the product has been created within a given time frame.
+In this tutorial we will review several different extension points provided by CIF Core Components and AEM in general. We will do this by extending the capabilities of the [Product Teaser](https://github.com/adobe/aem-core-cif-components/tree/master/ui.apps/src/main/content/jcr_root/apps/core/cif/components/commerce/productteaser/v1/productteaser) component to include the ability to render a "New" banner. Content authors will have the ability to turn toggle this banner and determine how long to display the banner. The "age" of the product will be based on it's creation date in the Magento catalog. Once a product is a certain amount of days old, the "New" banner should automatically dissapear.
 
 ## Prerequisites
 
@@ -258,7 +258,243 @@ Next, we will customize the dialog of the Product Teaser component to allow an A
 
     ![Toggle badge](./assets/05-customize-cif-components/toggle-badge-checkbox.gif)
 
-    This gives the author some control over when the badge appears. However it would be ideal for the badge to dissappear automatically once the product has reached a certain age in days. For this we will need to implement some backend logic.
+    This gives the author some control over when the badge appears. However it would be ideal for the badge to dissappear automatically once the product has reached a certain age in day based on the entry for **Max Product Age**. For this we will need to implement some backend logic.
 
+## Updating the Sling Model for the Product Teaser
 
+Next, we will extend the business logic of the Product Teaser by implementing a Sling Model. [Sling Models](https://sling.apache.org/documentation/bundles/models.html), are annotation driven "POJOs" (Plain Old Java Objects) that implement any of the business logic needed by the component. Sling Models are used in conjunction with the HTL scripts as part of the component. We will follow the [delegation pattern for Sling Models](https://github.com/adobe/aem-core-wcm-components/wiki/Delegation-Pattern-for-Sling-Models) so that we can just extend parts of the existing Product Teaser model.
 
+Sling Models are implemented as Java and can be found in the **core** module of the generated project.
+
+1. Open the Acme Store project in the IDE of your choice and navigate under the **core** module to: `core/src/main/java/com/acme/cif/core/models/MyProductTeaser.java`. **MyProductTeaser.java** is a Java Interface that we pre-created that extends the CIF **ProductTeaser** interface.
+
+2. Next, open the file **MyProductTeaserImpl.java** located at: `core/src/main/java/com/acme/cif/core/models/MyProductTeaserImpl.java`. `MyProductTeaserImpl` is the implementation class for the interface `MyProductTeaser`. 
+
+    Using the [delegation pattern for Sling Models](https://github.com/adobe/aem-core-wcm-components/wiki/Delegation-Pattern-for-Sling-Models) we can reference the `ProductTeaser` class via the `sling:resourceSuperType` property: 
+
+    ```java
+    @Self
+    @Via(type = ResourceSuperType.class)
+    private ProductTeaser productTeaser;
+    ```
+
+    For all of the methods that we don't want to override or change, we can simply return the value that the `ProductTeaser` returns:
+
+    ```java
+    @Override
+    public String getImage() {
+        return productTeaser.getImage();
+    }
+    ```
+
+3. One of the extra extension points provided by CIF Core Components is the `AbstractProductRetriever` which allows us to get access to specific product attributes. Add the following method to initialize the `AbstractProductRetriever` in the `init()` method:
+
+    ```java
+    import javax.annotation.PostConstruct;
+    ...
+    @Model(adaptables = SlingHttpServletRequest.class, adapters = MyProductTeaser.class, resourceType = MyProductTeaserImpl.RESOURCE_TYPE)
+    public class MyProductTeaserImpl implements MyProductTeaser {
+        ...
+        private AbstractProductRetriever productRetriever;
+
+        /* add this method to intialize the proudctRetriever */
+        @PostConstruct
+        public void initModel() {
+            productRetriever = productTeaser.getProductRetriever();
+
+        }
+    ...
+
+    ```
+
+4. Lets test out these changes by modifying the formatted price and overriding the logic in `getFormattedPrice()`. Make the following updates so that we explicitly format the price based on the German locale. (or pick a different country!)
+
+    ```java
+    import java.util.Locale;
+    import java.text.NumberFormat;
+    ...
+
+    @Override
+    public String getFormattedPrice() {
+         //return productTeaser.getFormattedPrice();
+        NumberFormat germanCurrencyFormat = NumberFormat.getCurrencyInstance(Locale.GERMANY);
+        Double price =  productRetriever.fetchProduct().getPrice().getRegularPrice().getAmount().getValue();
+        if(price != null) {
+            return germanCurrencyFormat.format(price);
+        }
+        return null;
+    }
+    ```
+
+    Note how the `productRetriever` object gives us access to the `ProductInterface` object via the `fetchProduct()` method. You can see all of the [available methods here](https://github.com/adobe/commerce-cif-magento-graphql/blob/master/src/main/java/com/adobe/cq/commerce/magento/graphql/ProductInterface.java).
+
+    > Note* modifying the locale to German is just a fun example to see the override. In reality the ProductTeaser uses the [page's locale to determine the format](https://github.com/adobe/aem-core-cif-components/blob/master/bundles/core/src/main/java/com/adobe/cq/commerce/core/components/internal/models/v1/productteaser/ProductTeaserImpl.java#L173).
+
+5. Next we need to update the **productteaser.html** in the **ui.apps** module to reference our new Sling Model at: `com.acme.cif.core.models.MyProductTeaser`.
+
+    ```diff
+      <!--/* productteaser.html - change the use.product to point to MyProductTeaser */-->
+      <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+    -  data-sly-use.product="com.adobe.cq.commerce.core.components.models.productteaser.ProductTeaser"
+    +  data-sly-use.product="com.acme.cif.core.models.MyProductTeaser"
+       data-sly-use.actionsTpl="actions.html">
+        ...
+     ```
+
+    Save the changes to `productteaser.html`.
+
+6. Deploy the code base to the local instance of AEM. Since changes were made to both the **ui.apps** and **core** modules, build and deploy the project from the root:
+
+    ```shell
+    $ cd acme-store
+    $ mvn -PautoInstallPackage clean install
+    ```
+
+7. Open a browser and navigate to: [http://localhost:4502/system/console/status-slingmodels](http://localhost:4502/system/console/status-slingmodels). This console shows all of the Sling Models registered in the system. Double-check to ensure the MyTeaserModelImpl got deployed and is mapped correctly. You should be able to see something like:
+
+    ```plain
+    com.acme.cif.core.models.MyProductTeaserImpl - acme/components/commerce/productteaser
+    ```
+
+8. Finally navigate to where you authored the Product Teaser component and you should now see the price with the German currency format:
+
+    ![Price Format Updated](./assets/05-customize-cif-components/german-currency-update.png)
+
+## Implement isShowBadge logic
+
+Now that we have had a chance to experiment with overriding the Sling Model methods, lets implement the logic for when to display the "new" badge.
+
+1. Return to your IDE and open the **MyProductTeaser.java** file at: `core/src/main/java/com/acme/cif/core/models/MyProductTeaser.java`.
+
+2. Add a new method, `isShowBadge()` to the interface:
+
+    ```java
+    @ProviderType
+    public interface MyProductTeaser extends ProductTeaser {
+        // Extend the existing interface with the additional properties which you
+        // want to expose to the HTL template.
+        public Boolean isShowBadge();
+    }
+    ```
+
+    This is a new method we will introduce to encapsulate the logic of whether to show the badge or not.
+
+3. Next, re-open **MyProductTeaserImpl.java** at `core/src/main/java/com/acme/cif/core/models/MyProductTeaserImpl.java`.
+
+4. The logic for how long the "new" badge will be displayed will be based on the `created_at` attribute of the Product. In order to have access to that attribute, we need to extend the **GraphQL** query performed by the ProductTeaser. We can do this by updating the `init()` method in **MyProductTeaserImpl.java**:
+
+    ```java
+    //MyProductTeaserImpl.java
+
+    @PostConstruct
+    public void initModel() {
+        productRetriever = productTeaser.getProductRetriever();
+
+        if (productRetriever != null) {
+            // Pass your custom partial query to the ProductRetriever. This class will
+            // automatically take care of executing your query as soon
+            // as you try to access any product property.
+            productRetriever.extendProductQueryWith(p ->
+                p.addCustomSimpleField("created_at")
+            );
+        }
+    }
+    ```
+
+    Adding to the `extendProductQueryWith` method is a powerful way to ensure additional product attributes are available to the rest of the model. It also minimizes the number of queries executed.
+
+    > Note* in the above code we are using the `addCustomSimpleField` to retrieve the `created_at` property. This illustrates how you can query for any custom attributes that are part of the Magento schema.
+    >
+    > However, the `created_at` property has actually been implemented as part of the [Product Interface](https://github.com/adobe/commerce-cif-magento-graphql/blob/master/src/main/java/com/adobe/cq/commerce/magento/graphql/ProductInterface.java) and a better practice would be to re-use the method like the so: `productRetriever.extendProductQueryWith(p -> p.createdAt());`. Most of the commonly found schema attributes have been implemented, so only use the `addCustomSimpleField` for truly custom attributes.
+
+5. Next, we will implement the `isShowBadge()` method:
+
+    ```java
+    import java.time.format.DateTimeFormatter;
+    import java.util.Locale;
+    import java.time.temporal.ChronoUnit;
+
+    ...
+
+    @Override
+    public Boolean isShowBadge() {
+         final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+         //Look at the checkbox from the dialog to see if we should even attempt to show the badge
+         final boolean showBadge = properties.get("badge", false);
+         if (showBadge) {
+
+             //Look at the numberfield set from the dialog to determine the max "age" in days to compare too
+             final int maxAgeProp = properties.get("age", 0);
+
+            String createdAtString;
+            try {
+                //Grab the created_at property from the product
+                //Here we show the example of retrieving the attribute as if it was a custom attribute
+                // an alternative that would work is productRetriever.fetchProduct().getCreatedAt()
+                createdAtString = productRetriever.fetchProduct().getAsString("created_at");
+                log.info("***CREATED_AT**** " + createdAtString);
+            } catch (SchemaViolationError e) {
+                //it is possible that a schema error could be thrown if the attribute is not part of the schema
+                log.error("Error determining to showBadge" , e);
+                return false;
+            }
+
+             // Custom code to calc the date difference of the product creation
+             // compared to today
+            final LocalDate createdAt = LocalDate.parse(createdAtString, formatter);
+             if (createdAt != null) {
+ 
+                 final long ageInDays = ChronoUnit.DAYS.between(createdAt, LocalDate.now());
+                 if (ageInDays < maxAgeProp) {
+                     return true;
+                 }
+             }
+         }
+         return false;
+     }
+
+    ```
+
+    In the above method we first check to see if the author has enabled the badge functionality with the checkbox. Next we read in the value of the property `age` that is set as part of the dialog and represents the maximum number of days old a product should be until the banner dissappears. Finally we calculate how old the product is based on the `created_at` date. If after comparing the two values we return `true` to show the badge, `false` in all other cases.
+
+6. Finally one more addition needs to be made to the `productteaser.html` script in order to call the `isShowBadge()` method. Open the file at `ui.apps/src/main/content/jcr_root/apps/acme/components/commerce/productteaser/productteaser.html`. Make the following update:
+
+    ```diff
+    ...
+    - <div data-sly-test="${properties.badge == 'true'}" class="item__badge">
+    + <div data-sly-test="${product.showBadge}" class="item__badge">
+         <span>New</span>
+     </div>
+    ...
+    ```
+
+7. Deploy the code base to the local instance of AEM. Since changes were made to both the **ui.apps** and **core** modules, build and deploy the project from the root:
+
+    ```shell
+    $ cd acme-store
+    $ mvn -PautoInstallPackage clean install
+    ```
+
+8. Return to AEM and the ProductTeaser component and experiment with different numbers to display the product's max age. Depending on how old the product is, you may need to enter some very large numbers to get the badge to display.
+
+    ![Max Product Age 999](./assets/05-customize-cif-components/max-age-working.png)
+
+9. Finally, search the AEM logs to see the log statement entered in step 5 above. This should print the value of the `created_at` property that is coming from Magento. You can view the logs of AEM by opening the `error.log` file. This file is located beneath the `crx-quickstart/logs/error.log` where the AEM jar has been installed. You can expect to see a line item like the following:
+
+    ```plain
+    com.acme.cif.core.models.MyProductTeaser ***CREATED_AT**** 2019-06-05 06:51:33
+    ```
+
+    Now you can verify that the logic we implemented is correct!
+
+### Congratulations!
+
+You just customized your first CIF component! Download the [finished solution package here](./assets/05-customize-cif-components/acme-store-solution.zip).
+
+## Additional Resources
+
+* [AEM CIF Archetype](https://github.com/adobe/aem-cif-project-archetype)
+* [AEM CIF components](https://github.com/adobe/aem-core-cif-components)
+* [Customizing CIF Core Components](https://github.com/adobe/aem-core-cif-components/wiki/Customizing-CIF-Core-Components)
+* [Customizing Core Components](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/customizing.html)
