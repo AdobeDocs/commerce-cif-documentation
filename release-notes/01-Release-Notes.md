@@ -1,6 +1,37 @@
 
 # Commerce Integration Framework GitHub Release Overview
 
+#### Release Date: February, 2020
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 0.9.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |0.9.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Archetype |0.9.0|[Release Notes](https://github.com/adobe/aem-cif-project-archetype/releases)|
+
+
+### What's new
+
+**Features**
+* Supports queries for Magento 2.3.4 Schema .
+
+* Added search support in Category Picker.
+
+* Pagination in Catogory List component to support large catalog sets.
+
+
+### What's improved
+* Shopping cart enhanced to display discounts.
+
+* Product Detail, Product Teaser and Product List components support display of advanced pricing information.
+
+* Product search in Product Console and Product Picker improved.
+
+* Multiple bug fixes applied.
+
+
+***
+
 #### Release Date: January, 2020
 
 |GitHub| Version| Detailed Release Notes|
@@ -13,7 +44,7 @@
 ### What's new
 
 **Features**
-* Experience Fragment (XF) component added to enable customers to create XF with commerce context.
+* Experience Fragment (XF) component added to enable customers to create XF in their commerce project.
 
 
 **Components**
