@@ -1,6 +1,36 @@
 
 # Commerce Integration Framework GitHub Release Overview
 
+#### Release Date: April, 2020
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 0.10.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |0.10.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Archetype |0.10.0|[Release Notes](https://github.com/adobe/aem-cif-project-archetype/releases)|
+
+
+### What's new
+
+**Features**
+* Configuration settings for CIF Connector unified and simplified.
+
+
+### What's improved
+* Shopping cart and checkout flow extended to support registered shoppers.
+
+* Extended internationalization support across all components.
+
+* Support for Grouped Products and Virtual Products available.
+
+* Related Products, Product Carousel, and Featured Category components improved to support optional title.
+
+* Multiple bug fixes applied.
+
+
+***
+
+
 #### Release Date: February, 2020
 
 |GitHub| Version| Detailed Release Notes|
