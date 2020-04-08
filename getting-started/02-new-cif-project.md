@@ -16,14 +16,12 @@ The following tools and technologies are required:
 
 * [Java 1.8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) or [Java 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) (AEM 6.5+ only)
 * [Apache Maven](https://maven.apache.org/) (3.3.9 or newer)
-* Adobe Experience Manager (local instance)
-  * [AEM 6.5](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/technical-requirements.html)
-  * [AEM 6.4.4+](https://helpx.adobe.com/experience-manager/6-4/release-notes/sp-release-notes.html)
-* Magento running a [version compatible to the archetype](https://github.com/adobe/aem-cif-project-archetype#requirements)
+* [Adobe Experience Manager](https://github.com/adobe/aem-cif-project-archetype#requirements) (local instance)
+* [Magento](https://github.com/adobe/aem-cif-project-archetype#requirements)
 
 It is also considered a best practice to include the Adobe Public Maven Repository in your Maven settings. This file, commonly found at `~/.m2/settings.xml` can be updated following this [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article.
 
-**New to AEM development?** Check out the [following guide to setting up a local development environment](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html) and this generic [AEM developer tutorial](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html) to learn the basics.
+> **New to AEM development?** Check out the [following guide to setting up a local development environment](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html) and this generic [AEM developer tutorial](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html) to learn the basics.
 
 ## Generate the project
 
@@ -188,7 +186,7 @@ At this point the [Acme storefront](http://localhost:4502/editor.html/content/ac
 
 If you have followed the video on the [Getting Started AEM - Magento Integration](01-getting-started.md) you'll know that these configurations can be done via the AEM web UI. Now that we have generated our own project we can add these configurations directly to the project. Adding these configurations to the project will eliminate the need to manually setup the integration every time we start a new instance of AEM and ensure consistency across environments.
 
-In the following steps we will be adding modifying several files in the generated project beneath `acme-store` (where you generated the project on the file system). You can use your favorite text-editor or import the Maven project using an [IDE like Eclipse, IntelliJ or Visual Studio Code](https://helpx.adobe.com/experience-manager/kt/platform-repository/using/local-aem-dev-environment-article-setup.html#setup-integrated-env).
+In the following steps we will be adding modifying several files in the generated project beneath `acme-store` (where you generated the project on the file system). You can use your favorite text-editor or import the Maven project using an [IDE like Eclipse, IntelliJ or Visual Studio Code](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html#set-up-an-integrated-development-environment).
 
 ### Add OSGi Configurations
 
@@ -205,7 +203,7 @@ In the following steps we will be adding modifying several files in the generate
 
     > AEM uses the notion of [Run Modes](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configure-runmodes.html) to define specific configurations for specific environments. The easiest way to target different environments is via the folder name. In this case *config* will apply to all environments. You can create additional run-modes with different folder names to target different environments. More [details can be found here](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configure-runmodes.html#Definingconfigurationpropertiesforarunmode). This may be useful if you wish to have different Magento configurations based on Author vs. Publish or Dev/QA vs. Production.
 
-2. Create a new XML file beneath the `/config` folder named: `com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestoreclient.xml`
+2. Create a new file beneath the `/config` folder named: `com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestore.config`
 
     ```diff
       /ui.apps
@@ -214,30 +212,30 @@ In the following steps we will be adding modifying several files in the generate
             /acme
               /components
               /config
-    +             com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestoreclient.xml
+    +             com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestore.config
     ```
 
-    > Note the suffix of `-acmestoreclient` to the name of the file. The `GraphqlClientImpl` is an OSGi Configuration Factory and allows for multiple configurations. You can add more configurations, you just need to ensure that each has a unique suffix so that AEM doesn't get confused during installation. More details about [OSGi Configuration with files can be found here](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configuring-osgi.html?cq_ck=1368002864971#OSGiConfigurationwithconfigurationfiles).
+    > Note the suffix of `-acmestore` to the name of the file. The `GraphqlClientImpl` is an OSGi Configuration Factory and allows for multiple configurations. You can add more configurations, you just need to ensure that each has a unique suffix so that AEM doesn't get confused during installation. More details about [OSGi Configuration with files can be found here](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configuring-osgi.html?cq_ck=1368002864971#OSGiConfigurationwithconfigurationfiles).
 
-3. Populate `com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestoreclient.xml` with the following, replacing *YOUR-MAGENTO-HOST* with your Magento hostname.
+3. Populate `com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestore.config` with the following, replacing *YOUR-MAGENTO-HOST* with your Magento hostname.
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-      jcr:primaryType="sling:OsgiConfig"
-      acceptSelfSignedCertificates="{Boolean}false"
-      identifier="acme"
-      maxHttpConnections="{Long}20"
-      httpMethod="GET"
-      url="https://YOUR-MAGENTO-HOST/graphql"/>
-
+    ```plain
+    requestPoolTimeout=I"2000"
+    url="https://YOUR-MAGENTO-HOST/graphql"
+    httpMethod="POST"
+    httpHeaders=[""]
+    socketTimeout=I"5000"
+    acceptSelfSignedCertificates=B"false"
+    identifier="default"
+    maxHttpConnections=I"20"
+    connectionTimeout=I"5000"
     ```
 
-    > Note that we are setting the identifer to **acme**. This will be used in several locations in the following steps. 
+    > Note that we are setting the identifer to **default**. This will be used in several locations in the following steps.
     >
-    > Also note the httpMethod is set to GET. Starting with version **2.3.2**, Magento supports and can cache some GraphQL queries when using GET. More [details about this configuration can be found here](https://github.com/adobe/aem-core-cif-components/wiki/configuration#cif-magento-graphql-base-configuration).
+    > Also note the httpMethod is set to POST. Starting with version **2.3.2**, Magento supports and can cache some GraphQL queries when using GET. More [details about this configuration can be found here](https://github.com/adobe/aem-core-cif-components/wiki/configuration#cif-magento-graphql-base-configuration).
 
-4. Create a second XML file beneath the `/config` folder named: `com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestoregraphql.xml`
+4. Create a second XML file beneath the `/config` folder named: `com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestore.config`
 
     ```diff
       /ui.apps
@@ -246,70 +244,76 @@ In the following steps we will be adding modifying several files in the generate
             /acme
               /components
               /config
-                 com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestoreclient.xml
-    +            com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestoregraphql.xml
+                 com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestore.config
+    +            com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestore.config
     ```
 
-    > Like the `GraphqlClientImpl`, `GraphqlDataServiceImpl` is an OSGi Configuration factory, hence the unique suffix of `-acmestoregraphql`.
+    > Like the `GraphqlClientImpl`, `GraphqlDataServiceImpl` is an OSGi Configuration factory, hence the unique suffix of `-acmestore`.
 
-5. Populate `com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestoregraphql.xml` with the following:
+5. Populate `com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestore.config` with the following:
+
+    ```xml
+    productCachingTimeMinutes=I"5"
+    catalogCachingTimeMinutes=I"60"
+    identifier="default"
+    categoryCachingSize=I"100"
+    catalogCachingSchedulerEnabled=B"true"
+    productCachingSize=I"1000"
+    catalogCachingEnabled=B"true"
+    productCachingEnabled=B"true"
+    ```
+
+    > Note the `identifier` is set to **default**, corresponding to the `GraphqlClientImpl` configuration from Step 3.
+
+6. In the **samplecontent** module navigate to `samplecontent/src/main/content/jcr_root/apps/acme/config` and find the file: `com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config`.
+
+7. Move `com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config` from **samplecontent** to the the config folder beneath **ui.apps**. You should now have a folder structure under **ui.apps** like the following:
+
+    ```diff
+      /ui.apps
+        ...
+          /apps
+            /acme
+              /components
+              /config
+                 com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-acmestore.config
+                 com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-acmestore.config
+    +            com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config
+    ```
+
+    The **config** folder in the **samplecontent** module should be empty now.
+
+### Update CIF Cloud Service Configuration
+
+A CIF Cloud Service configuration has been created in the **ui.content** module. We will now add a few properties to finish the configuration.
+
+1. Beneath the **ui.content** module navigate to `ui.content/src/main/content/jcr_root/conf/acme/settings/cloudconfigs/commerce`.
+2. Open the **.content.xml** file beneath `/conf/acme/settings/cloudconfigs/commerce`. Notice that `cq:catalogIdentifier` and `cq:graphqlClient` are set to a value of **default** which matches the OSGi identifier created in the previous exercise.
+3. Update the `magentoRootCategoryId` from **4** to the value of your Magento default category id.
+4. Ensure that there is a property and value for `magentoGraphqlEndpoint="/magento/graphql"`.
+5. (Optional) Update the value for `magentoStore` to specify the Magento store you want to use. If unsure, leave as **default**.
+6. You should now have an XML file that looks like the following where `YOUR_ROOT_CATEGORY_ID` is a number for your magento default category id:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-        jcr:primaryType="sling:OsgiConfig"
-        catalogCachingEnabled="{Boolean}true"
-        catalogCachingSchedulerEnabled="{Boolean}true"
-        catalogCachingTimeMinutes="{Long}60"
-        categoryCachingSize="{Long}100"
-        identifier="acme"
-        productCachingEnabled="{Boolean}true"
-        productCachingSize="{Long}1000"
-        productCachingTimeMinutes="{Long}5" />
-    ```
-
-    > Note the `identifier` is set to **acme**, corresponding to the `GraphqlClientImpl` configuration from Step 3.
-
-### Update Sample Content
-
-Next we will update the **samplecontent** module to match the configurations.
-
-1. Open the file `samplecontent/src/main/content/jcr_root/content/acme/us/.content.xml`. This is the root configuration for the sample US storefront site.
-2. Update the `cq:graphqlClient` value to point to `acme`.
-
-    ```diff
-    <?xml version="1.0" encoding="UTF-8"?>
     <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
         jcr:primaryType="cq:Page">
         <jcr:content
-    -       cq:graphqlClient="default"
-    +       cq:graphqlClient="acme"
-            cq:lastModified="{Date}2019-04-17T12:05:17.396+02:00"
+            cq:catalogDataResourceProviderFactory="magento-graphql"
+            cq:catalogIdentifier="default"
+            cq:graphqlClient="default"
+            cq:lastModified="{Date}2020-02-27T17:23:11.156+02:00"
             cq:lastModifiedBy="admin"
-    ```
-
-    > Note that **acme** is the identifier used for the GraphQL client configured in the **Add OSGi Configurations** above.
-
-3. Open the file `samplecontent/src/main/content/jcr_root/content/acme/us/en/products/.content.xml`. This is the configuration properties for the US Product Page.
-4. Update the `magentoRootCategoryId` from **4** to the value of your Magento default category id. This will be the number used in step 5 of **Add OSGi Configurations** above.
-
-    ```diff
-    <?xml version="1.0" encoding="UTF-8"?>
-    <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-        jcr:primaryType="cq:Page">
-        <jcr:content
-            cq:lastModified="{Date}2019-04-17T13:22:08.497+02:00"
-            cq:lastModifiedBy="admin"
-            cq:lastRolledout="{Date}2019-04-17T13:22:08.503+02:00"
-            cq:lastRolledoutBy="admin"
-            cq:template="/conf/acme/settings/wcm/templates/catalog-page"
-            jcr:mixinTypes="[cq:LiveRelationship]"
+            cq:template="/libs/commerce/gui/components/configuration/page/template"
+            jcr:language="en_us"
             jcr:primaryType="cq:PageContent"
-            jcr:title="Catalog Page"
-            sling:resourceType="acme/components/structure/catalogpage"
-    -       magentoRootCategoryId="4"
-    +       magentoRootCategoryId="YOUR_ROOT_CATEGORY_ID"
-            showMainCategories="{Boolean}true"/>
+            jcr:title="Commerce"
+            sling:configPropertyInherit="true"
+            sling:resourceType="commerce/gui/components/configuration/page"
+            magentoRootCategoryId="YOUR_ROOT_CATEGORY_ID"
+            magentoStore="default"
+            magentoGraphqlEndpoint="/magento/graphql"/>
+    </jcr:root>
     ```
 
 ## Finish local setup
@@ -350,31 +354,37 @@ Next we will update the **samplecontent** module to match the configurations.
 
     ![OSGi Configurations](assets/new-cif-project/osgi-configurations.png)
 
-4. Navigate to the AEM Products Console: [http://localhost:4502/aem/products.html/var/commerce/products](http://localhost:4502/aem/products.html/var/commerce/products).
+4. Navigate to the [CIF Configurations console](http://localhost:4502/libs/commerce/gui/content/configuration.html/conf). You should see a configuration for **Acme Store Configuration**.
 
-5. In the upper right-hand corner, click **Create** `>` **Bind Products**:
+5. View the properties for the **Acme Store Configuration** by selecting **Commerce** and clicking **Properties**.
+
+    ![Acme Store Configuration Properties](assets/new-cif-project/cif-cloud-service-console.png)
+
+6. You should see the properties entered in the previous lesson, including the custom entry for the **Root category id**:
+
+    ![Cloud Service Config Properties](assets/new-cif-project/cif-cloud-service-properties.png)
+
+7. Navigate to the AEM Products Console: [http://localhost:4502/aem/products.html/var/commerce/products](http://localhost:4502/aem/products.html/var/commerce/products).
+
+8. In the upper right-hand corner, click **Create** `>` **Bind Products**:
 
     ![Bind Products](./assets/new-cif-project/bind-products-button.png)
 
-6. Fill out the Bind Products Wizard with the following values:
+9. Fill out the Bind Products Wizard with the following values:
 
     | Property           | Value                     |
-    |--------------------|---------------------------|
-    | Title              | Acme Store                |
-    | Name*              | acme-store                |
-    | Commerce provider* | magento-graphql           |
-    | Magento Store      | (leave blank for default) |
-    | Root category id   | YOUR_ROOT_CATEGORY_ID     |
-    | Project            | acme                      |
-    | Language           | English                   |
+    |------------------------------|------------------|
+    | Title                        | Acme Store      |
+    | Name*                        | acme-store      |
+    | Context-Aware Configuration* | /conf/acme      |
 
     ![Bind product wizard](./assets/new-cif-project/bind-products-wizard.png)
 
-7. Click **Bind** and you should see the categories and products pulled from your Magento instance:
+10. Click **Bind** and you should see the categories and products pulled from your Magento instance:
 
     ![Commerce Console](assets/new-cif-project/commerce-console.png)
   
-8. Navigate to the AEM Sites Console and open the **US** `>` **EN** homepage: [http://localhost:4502/editor.html/content/acme/us/en.html](http://localhost:4502/editor.html/content/acme/us/en.html). Switch into **Preview** mode. The navigation of the site should now be populated with categories from the binded Magento instance:
+11. Navigate to the AEM Sites Console and open the **US** `>` **EN** homepage: [http://localhost:4502/editor.html/content/acme/us/en.html](http://localhost:4502/editor.html/content/acme/us/en.html). Switch into **Preview** mode. The navigation of the site should now be populated with categories from the connected Magento instance:
 
     ![US EN Home Page](assets/new-cif-project/us-en-samplesite.png)
 
