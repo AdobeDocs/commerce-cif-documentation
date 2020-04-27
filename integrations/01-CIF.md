@@ -55,7 +55,7 @@ The [Campaign integration](https://github.com/adobe/commerce-cif-cart-abandonmen
 
 ## AEM-Commerce Integration Patterns
 
-Some of the commonly supported AEM-Commerce integration patterns are shown below.
+Some of the commonly implemented AEM-Commerce integration patterns are shown below.
 
 ![AEM CIF Integration Patterns](images/aem-cif-integration-patterns-updated.JPG)
 
@@ -66,16 +66,16 @@ This is our recommended integration pattern where AEM owns the entire glass and 
 
 #### Integration Pattern 2
 
-This pattern depicts a fully headless way of delivering content and commerce. The delivery is fully client-side. In this pattern content is delivered via API and HTML and Commerce data is delivered via GraphQL. This pattern is currently not supported by CIF.
+This pattern depicts a fully headless way of delivering content and commerce. The delivery is fully client-side. In this pattern content is delivered via API and HTML and Commerce data is delivered via GraphQL. This pattern is currently not supported by CIF out-of-the-box.
  
 
 #### Integration Pattern 3
 
-In this pattern, Magento owns the glass and embeds AEM authored content. The AEM authored content can be delivered via Experience Fragments or Content Fragments. This integration pattern will require project-specific work.
+In this pattern, Magento owns the glass and embeds AEM authored content. The AEM authored content can be delivered via Experience Fragments or Content Fragments. This integration pattern will require project-specific work and cannot be implemented out-of-the-box with CIF.
 
 
 #### Integration Pattern 4
 
-This is a common integration pattern where the glass or presentation layer is split between AEM and a Commerce solution. Usually, the Commerce solution delivers the non-marketing pages such as checkout and my account and AEM delivers the marketing pages and store front catalog experience. In this pattern, you need to ensure that carts and user sessions are handled properly between the two systems to avoid a disjointed user experience. For e.g. Magento stores the cart & user session in a cookie, which can be shared between AEM & Magento. This pattern will require project-specific work. 
+This is a common integration pattern where the glass or presentation layer is split between AEM and a Commerce solution. Usually, the Commerce solution delivers the non-marketing pages such as checkout and my account and AEM delivers the marketing pages and store front catalog experience. In this pattern, you need to ensure that carts and user sessions are handled properly between the two systems to avoid a disjointed user experience. For e.g. Magento stores the cart & user session in a cookie, which can be shared between AEM & Magento. This pattern will require project-specific work and cannot be implemented out-of-the-box with CIF.
 
 
