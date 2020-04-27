@@ -57,20 +57,25 @@ The [Campaign integration](https://github.com/adobe/commerce-cif-cart-abandonmen
 
 Some of the commonly supported AEM-Commerce integration patterns are shown below.
 
-![AEM CIF Integration Patterns](images/aem-cif-integration-patterns.jpg)
+![AEM CIF Integration Patterns](images/aem-cif-integration-patterns-updated.JPG)
 
 #### Integration Pattern 1
 
-In this pattern, a 3rd party solution (non-AEM) owns the glass and embeds AEM authored content. The AEM authored content can be rendered either client-side or server-side. Authors or marketers can use AEM's authoring capabilities to create content and embed it in a 3rd party solution. 
+This is our recommended integration pattern where AEM owns the entire glass and integrates commerce services via Adobe Commerce GraphQL APIs. This pattern unlocks AEM's full flexibility to tailor rich media site designs across devices. This integration pattern is supported by CIF as an out-of-the-box solution.
+
 
 #### Integration Pattern 2
 
-This is a common integration pattern where the glass or presentation layer is split between AEM and a Commerce solution. Usually, the Commerce solution delivers the non-marketing pages such as checkout and my account and AEM delivers the marketing pages and store front catalog experience. In this pattern, you need to ensure that carts and user sessions are handled properly between the two systems to avoid a disjointed user experience. For e.g. Magento stores the cart & user session in a cookie, which can be shared between AEM & Magento. 
+This pattern depicts a fully headless way of delivering content and commerce. The delivery is fully client-side. In this pattern content is delivered via API and HTML and Commerce data is delivered via GraphQL. This pattern is currently not supported by CIF.
+ 
 
 #### Integration Pattern 3
 
-In this pattern, AEM owns the glass but a 3rd party solution can embed content. This enables easy re-use of existing content in a 3rd party solution. 
+In this pattern, Magento owns the glass and embeds AEM authored content. The AEM authored content can be delivered via Experience Fragments or Content Fragments. This integration pattern will require project-specific work.
+
 
 #### Integration Pattern 4
 
-This is our recommended integration pattern where AEM owns the entire glass and integrates commerce services via Adobe Commerce GraphQL APIs. This pattern unlocks AEM's full flexibility to tailor rich media site designs across devices. 
+This is a common integration pattern where the glass or presentation layer is split between AEM and a Commerce solution. Usually, the Commerce solution delivers the non-marketing pages such as checkout and my account and AEM delivers the marketing pages and store front catalog experience. In this pattern, you need to ensure that carts and user sessions are handled properly between the two systems to avoid a disjointed user experience. For e.g. Magento stores the cart & user session in a cookie, which can be shared between AEM & Magento. This pattern will require project-specific work. 
+
+
