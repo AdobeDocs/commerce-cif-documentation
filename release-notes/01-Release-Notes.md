@@ -1,6 +1,18 @@
 
 # Commerce Integration Framework GitHub Release Overview
 
+## Overview of Sytem Requirements
+
+Review the minimum system requirements in the table below for the CIF version you are currently using or plan to use in the future.
+
+|GitHub| System Requirements| 
+|:-------|:-----:|
+|CIF Connector |[System Requirements](https://github.com/adobe/commerce-cif-connector/blob/master/VERSIONS.md)|
+|CIF Core Components |[System Requirements](https://github.com/adobe/aem-core-cif-components/blob/master/VERSIONS.md)|
+|CIF Archetype |[System Requirements](https://github.com/adobe/aem-cif-project-archetype/blob/master/VERSIONS.md)|
+
+## Release Notes
+
 #### Release Date: April, 2020
 
 |GitHub| Version| Detailed Release Notes|
