@@ -13,6 +13,36 @@ Review the minimum system requirements in the table below for the CIF version yo
 
 ## Release Notes
 
+#### Release Date: May, 2020
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 1.0.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |1.0.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Archetype |0.11.0|[Release Notes](https://github.com/adobe/aem-cif-project-archetype/releases)|
+
+
+### What's new
+
+**Features**
+* Supports queries for Magento 2.3.5 Schema.
+
+* Faceted Search support added to Search Page and Product List Page to allow shoppers to filter search results based on Product facets.
+
+* New OSGi service added to customize PDP/PLP URLs for SEO purposed. For more details, refer to this [documentation](https://github.com/adobe/aem-core-cif-components/wiki/configuration).
+
+* Product Binding automatically created when a Cloud Configuration is created.
+
+
+### What's improved
+* Cloud Configration extended to display "Create Folder" action.
+
+* Multiple bug fixes applied.
+
+
+***
+
+
 #### Release Date: April, 2020
 
 |GitHub| Version| Detailed Release Notes|
@@ -55,7 +85,7 @@ Review the minimum system requirements in the table below for the CIF version yo
 ### What's new
 
 **Features**
-* Supports queries for Magento 2.3.4 Schema .
+* Supports queries for Magento 2.3.4 Schema.
 
 * Added search support in Category Picker.
 
