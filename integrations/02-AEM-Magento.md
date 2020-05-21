@@ -33,7 +33,7 @@ This shows full transparency on changes made going forward and allows you to get
 
 ## AEM Commerce connector for Magento and GraphQL
 
-This connector provides integration of Magento products and categories in the AEM Commerce console as well as authoring features like product and category pickers. It also provides authoring features to display product and category information of data stored in Magento from within AEM by using Magento's [GraphQL APIs](https://github.com/magento/graphql-ce/wiki/Roadmap)
+This connector provides integration of Magento products and categories in the AEM Commerce console as well as authoring features like product and category pickers. It also provides authoring features to display product and category information of data stored in Magento from within AEM by using Magento's [GraphQL APIs](https://devdocs.magento.com/guides/v2.3/graphql/index.html)
 
 - The AEM Commerce console shows a hierarchal view of products stored in Magento organized by category.
 - The Product Picker is an AEM Dialog field, similar to the Asset Picker, that would be used with an AEM Component to allow a user to select one or more products.
