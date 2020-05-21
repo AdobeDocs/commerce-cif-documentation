@@ -25,13 +25,13 @@ The main benefits are:
 
 The CIF on Adobe I/O Runtime enables two use-cases: 1. Third party integrations via microservice layer and 2. Extensibility of microservices. This architecture is based on [OpenWhisk](https://openwhisk.apache.org) & [Adobe I/O Runtime](https://www.adobe.io/apis/cloudplatform/runtime.html). The main building blocks of the commerce services are serverless functions (OpenWhisk actions). These actions run on Adobe I/O Runtime inside an isolated container, stateless and serverless interacting with the commerce backend system or other endpoints via their APIs. 
 
-Extensibility of microservices is planned for 2021.
+
 
 ## CIF Elements
 
 #### AEM CIF Cloud Connector
 
-The connector connects AEM with Magento Cloud GraphQL endpoint or Adobe I/O Runtime GraphQL (available later). The connector allows AEM to retrieve commerce data.
+The connector connects AEM with Magento Cloud GraphQL endpoint or Adobe I/O Runtime GraphQL. The connector allows AEM to retrieve commerce data.
 
 #### AEM CIF Core Components
 
