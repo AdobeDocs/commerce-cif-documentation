@@ -55,7 +55,7 @@ For more dynamic attributes such as Inventory or Price, on the other hand, clien
 
 ### Commerce APIs
 
-This integration works with the latest Magento 2.3.3 release. Since the 2.3.3 release doesn't have full [GraphQL API](https://github.com/magento/graphql-ce/wiki/Roadmap) coverage, [REST APIs](https://devdocs.magento.com/guides/v2.3/rest/bk-rest.html) can be used for the missing features. 
+This integration works with the latest Magento 2.3.5 release. For more information on GraphQL APIs and coverage, refer to [GraphQL API](https://devdocs.magento.com/guides/v2.3/graphql/index.html). 
 
 ### Catalog Management
 
