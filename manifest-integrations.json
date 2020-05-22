@@ -21,6 +21,12 @@
         "pages": [],
         "path": "AdobeDocs/commerce-cif-documentation/master/integrations/02-AEM-Magento.md",
         "title": "AEM and Magento"
+    },
+    {
+        "importedFileName": "AEM and 3rd Party Solution",
+        "pages": [],
+        "path": "AdobeDocs/commerce-cif-documentation/master/integrations/03-AEM-nonMagento.md",
+        "title": "AEM and 3rd Party Solution"
     }
    ]
 }
