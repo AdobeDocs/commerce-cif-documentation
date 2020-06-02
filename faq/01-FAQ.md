@@ -86,7 +86,7 @@ When using AEM on AMS and Magento cloud deployment, it is mandatory to use abstr
 
 ### 21. How can I request for an I/O Runtime trial license?
 
-You can request for a trial license to use I/O Runtime [here](https://github.com/AdobeDocs/adobeio-runtime/blob/master/overview/request_a_trial.md)
+You can request for a trial license to use I/O Runtime [here](https://github.com/AdobeDocs/adobeio-runtime/blob/master/overview/request_a_trial.md).
 
 
 
