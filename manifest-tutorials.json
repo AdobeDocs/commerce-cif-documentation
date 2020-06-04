@@ -39,6 +39,13 @@
         "pages": [],
         "path": "AdobeDocs/commerce-cif-documentation/master/tutorials/05-customize-cif-components.md",
         "title": "Customizing CIF Components"
-    }       
+    }    
+    ,
+    {
+        "importedFileName": "Conifguring URLs for SEO",
+        "pages": [],
+        "path": "AdobeDocs/commerce-cif-documentation/master/tutorials/06-advanced-url-configuration.md",
+        "title": "Configuring URLs for SEO"
+    }     
    ]
 }
