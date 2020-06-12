@@ -18,7 +18,7 @@ The main benefits are:
    
 - CIF provides serverless, microservice-based process and business logic layer for customization and extension of commerce services   
 
-- CIF provides out-of-the-box integrations with Adobe solutions such as AEM, Magento, and Campaign Standard
+- CIF provides out-of-the-box integrations with Adobe solutions such as AEM, and Magento
 
 
 ## CIF on Adobe I/O Runtime
