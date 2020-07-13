@@ -13,6 +13,36 @@ Review the minimum system requirements in the table below for the CIF version yo
 
 ## Release Notes
 
+#### Release Date: June, 2020
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 1.1.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |1.1.1|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Archetype |0.11.0|[Release Notes](https://github.com/adobe/aem-cif-project-archetype/releases)|
+
+
+### What's new
+
+**Features**
+* Added product sorting on Product List page and Search Results page to allow shoppers to sort based on relevance, price, and product name.
+
+* Added category filtering as a facet to allow shoppers to filter based on category.
+
+* Added service user mapping as part of security requirement to ensure access to /conf via service users and not by directly manipulating ACLs. CIF Core Components now must use a service user to access configurations.
+
+### What's improved
+* Product List page and Search Result page display total number of items. Number of items is updated when shopper applied filters.
+
+* Faceted search optimized by combining category query with product search query.
+
+* Category/Product pickers for page preview honor cq:catalogPath.
+
+* Multiple bug fixes.
+
+***
+
+
 #### Release Date: May, 2020
 
 |GitHub| Version| Detailed Release Notes|
