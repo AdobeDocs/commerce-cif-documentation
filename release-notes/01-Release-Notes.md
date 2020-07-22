@@ -23,6 +23,7 @@ Review the minimum system requirements in the table below for the CIF version yo
 
 
 ### What's new
+This is the 1st version of CIF Core Components that is supported on Adobe Experience Manager Cloud Service.
 
 **Features**
 * Added product sorting on Product List page and Search Results page to allow shoppers to sort based on relevance, price, and product name.
