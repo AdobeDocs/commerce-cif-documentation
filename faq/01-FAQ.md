@@ -57,16 +57,15 @@ Integration with third party solutions such as other commerce solutions (non-Mag
 
 ### 14. Is there a way to enhance the product data with commercial text? Where do you do this? In AEM or in Magento?
 
-This functionality is planned in early 2020 but can be developed on a project-level. There are multiple ways to achieve this and it will depend on the use case. One way would be to work with custom attributes. Allow AEM authors to mutate these fields in AEM’s product editor and synchronize the data back to the PIM. Another option would be leveraging AEM Experience Fragments which gets injected into the product pages.
+There are multiple ways to achieve this and it will depend on the use case. One way would be to work with custom attributes. Allow AEM authors to mutate these fields in AEM’s product editor and synchronize the data back to the PIM. Another option would be leveraging AEM Experience Fragments which gets injected into the product pages.
 
 ### 15. Does the integration between AEM-Magento change when Adobe I/O Runtime platform is used?
 
-Customers will not need to re-do the integration once GraphQL on I/O Runtime is available.
 Customers who want to extend commerce services can use the same integration and write action sequences hosted on the I/O Runtime platform to inject business logic and enrich the commerce services.
 
 ### 16. With no products stored in AEM, how do you envision authors mapping images to a specific product?
 
-You can store product assets (images) in AEM Assets but you will have to manually store the asset URLs in Magento. Authors will have access to a tagging feature later in 2019 so that they can tag assets with product or catalog to enable product specific asset search.
+You can store product assets (images) in AEM Assets but you will have to manually store the asset URLs in Magento. Authors can leverage tagging feature that CIF provides so that they can tag assets with product or catalog to enable product specific asset search.
 
 ### 17. Since AEM creates product and catalog pages dynamically based on a generic template in AEM, what would I see if I were to open CRXDE Lite and check under content? Would I see an entire product tree based on the products in Magento? If not, how would an author enhance those pages?
 
