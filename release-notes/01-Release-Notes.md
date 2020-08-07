@@ -13,6 +13,29 @@ Review the minimum system requirements in the table below for the CIF version yo
 
 ## Release Notes
 
+#### Release Date: July, 2020
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 1.2.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |1.2.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+
+### What's new
+
+**Features**
+* Address book management added to allow signed-in users to manage their addresses.
+
+* CIF Cloud Configuration UI supports publish/unpublish actions.
+
+### What's improved
+* Sign-in component moved to user drop-down for easy access.
+
+* Simplified the aem-core-cif-react-components package.
+
+* Multiple bug fixes.
+
+***
+
 #### Release Date: June, 2020
 
 |GitHub| Version| Detailed Release Notes|
@@ -20,7 +43,6 @@ Review the minimum system requirements in the table below for the CIF version yo
 |CIF Connector | 1.1.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
 |CIF Core Components |1.1.1|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
 |CIF Archetype |0.11.0|[Release Notes](https://github.com/adobe/aem-cif-project-archetype/releases)|
-
 
 ### What's new
 This is the 1st version of CIF Core Components that is supported on Adobe Experience Manager Cloud Service.
