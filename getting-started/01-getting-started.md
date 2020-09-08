@@ -10,6 +10,7 @@ This video walks you through the setup of the integration between AEM and Magent
 
 You can find more information on these GitHub repositories:
 
-- [AEM CIF Archetype](https://github.com/adobe/aem-cif-project-archetype)
+- [AEM Guides - CIF Venia Project](https://github.com/adobe/aem-cif-guides-venia)
+- [AEM CIF Archetype](https://github.com/adobe/aem-project-archetype)
 - [AEM CIF components](https://github.com/adobe/aem-core-cif-components)
-- [AEM- CIF connector and authoring tools](https://github.com/adobe/commerce-cif-connector)
+- [AEM CIF connector and authoring tools](https://github.com/adobe/commerce-cif-connector)
