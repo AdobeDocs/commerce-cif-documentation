@@ -9,9 +9,39 @@ Review the minimum system requirements in the table below for the CIF version yo
 |:-------|:-----:|
 |CIF Connector |[System Requirements](https://github.com/adobe/commerce-cif-connector/blob/master/VERSIONS.md)|
 |CIF Core Components |[System Requirements](https://github.com/adobe/aem-core-cif-components/blob/master/VERSIONS.md)|
-|CIF Archetype |[System Requirements](https://github.com/adobe/aem-cif-project-archetype/blob/master/VERSIONS.md)|
+|AEM Archetype |[System Requirements](https://github.com/adobe/aem-project-archetype/blob/master/VERSIONS.md)|
 
 ## Release Notes
+
+#### Release Date: August, 2020
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 1.3.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |1.3.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Venia Reference Site| 2020.9.2|[Release Notes](https://github.com/adobe/aem-cif-guides-venia/releases)|
+
+### What's new
+
+**Features**
+* Breadcrumb component added to support content and commerce pages.
+
+* Commerce tab added on Page properties to expose CIF properties for Landing Page and Experience Fragments.
+
+
+### What's improved
+* Searchbar component improved to support option to display placeholder text
+
+* Added flexibility to Product and Product Teaser components to support easy customizations.
+
+* Added flexibility to override and configure default CTA button label for Product Teaser component.
+
+* Address Book component improved to allow registered shopper to choose shipping and billing addresses saved in the addreess book during checkout.
+
+* Multiple bug fixes.
+
+***
+
 
 #### Release Date: July, 2020
 
@@ -19,8 +49,12 @@ Review the minimum system requirements in the table below for the CIF version yo
 |:-------|:-----:|---------------------:|
 |CIF Connector | 1.2.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
 |CIF Core Components |1.2.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Venia Reference Site| 2020.8.14|[Release Notes](https://github.com/adobe/aem-cif-guides-venia/releases)|
 
 ### What's new
+* CIF Venia Reference Site was extracted from the CIF Archetype repo and is now a standalone GitHub repository. 
+
+* CIF Archetype merged with AEM Project Archetype. For new projects, use [AEM Project Archetype](https://github.com/adobe/aem-project-archetype) as the starting point.
 
 **Features**
 * Address book management added to allow signed-in users to manage their addresses.
