@@ -2,7 +2,7 @@
 
 Adobe’s Commerce Integration Framework (CIF) is Adobe's recommended pattern to integrate and extend commerce services from Magento and other third party commerce solutions with the Experience Cloud. This enables Adobe Customers to deliver extraordinary and personalized omnichannel shopping experience based on state-of-the-art technology. 
 
-The Commerce Integration Framework is an add-on module for AEM and provides a set of authoring tools, components, and a reference storefront to accelerate integrations between AEM and commerce solutions. 
+The Commerce Integration Framework is an add-on module for AEM and provides a set of authoring tools, components, and a reference storefront to accelerate integrations between AEM and commerce solutions. CIF is supported on all AEM offerings (On-Premise, Managed Services, & Cloud Service). There are some differences in the deployment model for the different AEM offerings. This set of documentation provides details for CIF on AEM On-Premise and AEM Managed Service. For more details on CIF on Cloud Service, refer to [AEM Commerce as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/commerce/home.html)
 
 
 ## CIF Benefits
