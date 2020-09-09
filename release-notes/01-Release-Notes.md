@@ -9,7 +9,7 @@ Review the minimum system requirements in the table below for the CIF version yo
 |:-------|:-----:|
 |CIF Connector |[System Requirements](https://github.com/adobe/commerce-cif-connector/blob/master/VERSIONS.md)|
 |CIF Core Components |[System Requirements](https://github.com/adobe/aem-core-cif-components/blob/master/VERSIONS.md)|
-|AEM Archetype |[System Requirements](https://github.com/adobe/aem-project-archetype/blob/master/VERSIONS.md)|
+|AEM Project Archetype |[System Requirements](https://github.com/adobe/aem-project-archetype/blob/master/VERSIONS.md)|
 
 ## Release Notes
 
