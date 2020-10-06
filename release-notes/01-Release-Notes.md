@@ -13,6 +13,38 @@ Review the minimum system requirements in the table below for the CIF version yo
 
 ## Release Notes
 
+#### Release Date: September, 2020
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 1.4.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |1.4.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Venia Reference Site| 2020.10.2|[Release Notes](https://github.com/adobe/aem-cif-guides-venia/releases)|
+
+### What's new
+
+**Features**
+* Supports queries for Magento 2.4.0 Schema.
+
+* Account information features added to allow shoppers to update personal information.
+
+* Lazy loading pagination style implemented for Product list and Search results pages to allow developers to configure these components to display "Load more" button as the pagination style.
+
+* Password reset page implemented to allow shoppers to be able to update/reset their account password.
+
+* Support for Bundled products types available.
+
+
+### What's improved
+* Developers can configure the HTML tags for Product Carousel, Related Products, and Featured Category List components to follow SEO best practices.
+
+* My Account bugs fixed. 
+
+* Multiple bug fixes.
+
+***
+
+
 #### Release Date: August, 2020
 
 |GitHub| Version| Detailed Release Notes|
