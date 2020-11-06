@@ -13,6 +13,29 @@ Review the minimum system requirements in the table below for the CIF version yo
 
 ## Release Notes
 
+#### Release Date: October, 2020
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 1.5.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |1.5.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Venia Reference Site| 2020.10.27|[Release Notes](https://github.com/adobe/aem-cif-guides-venia/releases)|
+
+### What's new
+
+**Features**
+* New Category carousel component added to enable business users to drag and drop this component on AEM content pages to enrich content pages with commerce data.
+
+* CIF core components extended to hydrate the Adobe Client Data Layer by sending commerce data. The Adobe Client Data Layer is a standardized method to collect data and communicate the data to digital analytics and reporting servers. For more details, refer to [Adobe Client Data Layer](https://github.com/adobe/adobe-client-data-layer/wiki).
+
+### What's improved
+* Product Detail and Product List pages extended to automatically populate SEO metadata (e.g. title, meta description, meta keywords) configured from within the Magento admin UI
+
+* Commerce teaser component bug fixed.
+
+***
+
+
 #### Release Date: September, 2020
 
 |GitHub| Version| Detailed Release Notes|
