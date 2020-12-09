@@ -13,6 +13,30 @@ Review the minimum system requirements in the table below for the CIF version yo
 
 ## Release Notes
 
+#### Release Date: November, 2020
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 1.6.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |1.6.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Venia Reference Site| 2020.12.01|[Release Notes](https://github.com/adobe/aem-cif-guides-venia/releases)|
+
+### What's new
+
+**Features**
+* Template inheritance added to specific category page. This feature improves business user efficiency because it makes it possible for all sub-categories to inherit the template that was created for a specific top category.
+
+* Venia reference storefront updated to use Experience Fragment for the footer. Business users have the ability to edit  the page footer using AEM authoring tools.
+
+### What's improved
+* Checkout component improved to provide shoppers with the ability to enter destination country to allow billing/shipping addresses outside the United States.
+
+* Navigation component extended to hydrate Adobe Client Data Layer.
+
+* Multiple bug fixes.
+
+***
+
 #### Release Date: October, 2020
 
 |GitHub| Version| Detailed Release Notes|
