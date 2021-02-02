@@ -24,7 +24,7 @@ Review the minimum system requirements in the table below for the CIF version yo
 ### What's new
 
 **Features**
-* Product Experience Management: New 'Commerce' property tab for Assets and Experience Fragments. This tab enables you to link Assets and Experience Fragments to products & categories. The tab also shows real-time data for linked products & categories, and a link to show details in the product console.
+* Product Experience Management: New 'Commerce' property tab for Assets and Experience Fragments. This tab enables you to link Assets and Experience Fragments to products & categories. The tab also shows real-time data for linked commerce objects and a link to show details in the product console.
 
 ### What's improved
 * Send user data after authentication to Adobe Client Data Layer.
