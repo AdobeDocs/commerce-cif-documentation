@@ -13,6 +13,26 @@ Review the minimum system requirements in the table below for the CIF version yo
 
 ## Release Notes
 
+#### Release Date: January, 2021
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 1.7.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |1.7.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Venia Reference Site| 2021.02.02|[Release Notes](https://github.com/adobe/aem-cif-guides-venia/releases)|
+
+### What's new
+
+**Features**
+* Product Experience Management: New 'Commerce' property tab for Assets and Experience Fragments. This tab enables you to link Assets and Experience Fragments to products & categories. The tab also shows real-time data for linked products & categories, and a link to show details in the product console.
+
+### What's improved
+* Send user data after authentication to Adobe Client Data Layer.
+
+* Multiple bug fixes.
+
+***
+
 #### Release Date: November, 2020
 
 |GitHub| Version| Detailed Release Notes|
