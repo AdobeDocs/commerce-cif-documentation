@@ -13,6 +13,28 @@ Review the minimum system requirements in the table below for the CIF version yo
 
 ## Release Notes
 
+#### Release Date: March, 2021
+
+|GitHub| Version| Detailed Release Notes|
+|:-------|:-----:|---------------------:|
+|CIF Connector | 1.9.0|[Release Notes](https://github.com/adobe/commerce-cif-connector/releases)|
+|CIF Core Components |1.10.0|[Release Notes](https://github.com/adobe/aem-core-cif-components/releases)|
+|CIF Venia Reference Site| 2021.03.25|[Release Notes](https://github.com/adobe/aem-cif-guides-venia/releases)|
+
+### What's new
+
+**Features**
+* Support for Magento 2.4.2
+
+### What's improved
+* Improved re-usability of product detail component for content driven pages
+
+* Better caching and less backend calls for PDPs
+
+* Multiple bug fixes.
+
+***
+
 #### Release Date: February, 2021
 
 |GitHub| Version| Detailed Release Notes|
